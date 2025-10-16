@@ -1,0 +1,25 @@
+0.7
+2020.2
+May 22 2024
+19:03:11
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/input_data_bram_tb.vhd,1757938279,vhdl,,,,tb_uart_to_bram,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_binarizer_subsystem.vhd,1758015307,vhdl,,,,tb_binarizer_subsystem,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_control_unit.vhd,1758611787,vhdl,,,,tb_control_unit,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_frame_bram.vhd,1758437133,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_thinning_subsystem.vhd,,,tb_frame_bram,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_thinning_subsystem.vhd,1758437149,vhdl,,,,tb_thinning_subsystem,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_uart_rx_to_bram.vhd,1758227630,vhdl,,,,tb_uart_rx_to_bram,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_xbus_simple_bridge.vhd,1758617673,vhdl2008,,,,tb_xbus_simple_bridge,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/uart_tb.vhd,1757861103,vhdl,,,,tb_uart_rx,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_stream.vhd,1758011995,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd,,,binarizer_stream,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd,1758356151,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_binarizer_subsystem.vhd,,,binarizer_subsystem,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binary_bram.vhd,1758011697,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd,,,binary_bram,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd,1758576530,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_control_unit.vhd,,,control_unit,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/data_bram.vhd,1758185101,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_binarizer_subsystem.vhd,,,data_bram,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/image_window_reader.vhd,1758012225,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/thinning_subsystem.vhd,,,image_window_reader,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/input_data_bram.vhd,1757862390,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/input_data_bram_tb.vhd,,,uart_to_bram,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/thinning_subsystem.vhd,1758387691,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_thinning_subsystem.vhd,,,thinning_subsystem,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/thr_bram.vhd,1758011627,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd,,,thr_bram,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd,1758012455,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd,,,threshold_builder,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/uart_rx.vhd,1757857478,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/uart_tb.vhd,,,uart_rx,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/utils_pkg.vhd,1758011572,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_stream.vhd;C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd;C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd,,,utils_pkg,,,,,,,,
+C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/xbus_simple_bridge.vhd,1758613691,vhdl,C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_xbus_simple_bridge.vhd,,,xbus_simple_bridge,,,,,,,,

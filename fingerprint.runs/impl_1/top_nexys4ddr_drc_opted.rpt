@@ -1,0 +1,333 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Sun Oct 12 22:22:23 2025
+| Host         : LAPTOP-2TEH7FQA running 64-bit major release  (build 9200)
+| Command      : report_drc -file top_nexys4ddr_drc_opted.rpt -pb top_nexys4ddr_drc_opted.pb -rpx top_nexys4ddr_drc_opted.rpx
+| Design       : top_nexys4ddr
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 56
++-----------+----------+-----------------------------------------------------+------------+
+| Rule      | Severity | Description                                         | Violations |
++-----------+----------+-----------------------------------------------------+------------+
+| CFGBVS-1  | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
+| CHECK-3   | Warning  | Report rule limit reached                           | 2          |
+| DPIP-1    | Warning  | Input pipelining                                    | 4          |
+| DPOP-1    | Warning  | PREG Output pipelining                              | 3          |
+| DPOP-2    | Warning  | MREG Output pipelining                              | 3          |
+| DPREG-4   | Warning  | DSP48E1_PregDynOpmodeZmuxP:                         | 1          |
+| IOSR-1    | Warning  | IOB set reset sharing                               | 1          |
+| RBOR-1    | Warning  | RAMB output registers                               | 1          |
+| REQP-1839 | Warning  | RAMB36 async control check                          | 20         |
+| REQP-1840 | Warning  | RAMB18 async control check                          | 20         |
++-----------+----------+-----------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+CFGBVS-1#1 Warning
+Missing CFGBVS and CONFIG_VOLTAGE Design Properties  
+Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  It is suggested to specify these either using the 'Edit Device Properties' function in the GUI or directly in the XDC file using the following syntax:
+
+ set_property CFGBVS value1 [current_design]
+ #where value1 is either VCCO or GND
+
+ set_property CONFIG_VOLTAGE value2 [current_design]
+ #where value2 is the voltage provided to configuration bank 0
+
+Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+CHECK-3#1 Warning
+Report rule limit reached  
+REQP-1839 rule limit reached: 20 violations have been found.
+Related violations: <none>
+
+CHECK-3#2 Warning
+Report rule limit reached  
+REQP-1840 rule limit reached: 20 violations have been found.
+Related violations: <none>
+
+DPIP-1#1 Warning
+Input pipelining  
+DSP u_bin/tb_inst/prod_q0 input u_bin/tb_inst/prod_q0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
+Input pipelining  
+DSP u_bin/tb_inst/prod_q0 input u_bin/tb_inst/prod_q0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#3 Warning
+Input pipelining  
+DSP u_vga/b_addr0 input u_vga/b_addr0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#4 Warning
+Input pipelining  
+DSP u_vga/b_addr0 input u_vga/b_addr0/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPOP-1#1 Warning
+PREG Output pipelining  
+DSP u_bin/tb_inst/prod_q0 output u_bin/tb_inst/prod_q0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#2 Warning
+PREG Output pipelining  
+DSP u_thin/addr_of output u_thin/addr_of/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#3 Warning
+PREG Output pipelining  
+DSP u_vga/b_addr0 output u_vga/b_addr0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-2#1 Warning
+MREG Output pipelining  
+DSP u_bin/bin_stream_inst/bin_addr_r_reg multiplier stage u_bin/bin_stream_inst/bin_addr_r_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#2 Warning
+MREG Output pipelining  
+DSP u_bin/tb_inst/prod_q0 multiplier stage u_bin/tb_inst/prod_q0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#3 Warning
+MREG Output pipelining  
+DSP u_vga/b_addr0 multiplier stage u_vga/b_addr0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPREG-4#1 Warning
+DSP48E1_PregDynOpmodeZmuxP:  
+The DSP48E1 cell u_thin/addr_of with the given dynamic OPMODE[6:0] connections may lead to an unregistered asynchronous feedback path without the PREG attribute enabled. Please refer to the user guide and if one of the internal P feedback opmodes is possible for this design the PREG attribute must be set to 1, currently set to 0
+Related violations: <none>
+
+IOSR-1#1 Warning
+IOB set reset sharing  
+IO UART_TXD_IN connects to flops which have these rst_sys, u_cpu/u_cpu/soc_generators.neorv32_sys_reset_inst/rstn_sys set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+Related violations: <none>
+
+RBOR-1#1 Warning
+RAMB output registers  
+RAMB min_bram_vga/ram_reg output DOB (3) is connected to asynchronous registers, if you use synchronous controls you will get better results both in area and delay (RAMB has synchronous registers built in).
+Related violations: <none>
+
+REQP-1839#1 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#2 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#3 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#4 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#5 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#6 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#7 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#8 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/v_cnt10_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#9 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/v_cnt10_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#10 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/v_cnt10_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#11 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/v_cnt10_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#12 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/v_cnt10_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#13 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/v_cnt10_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#14 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/v_cnt10_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#15 Warning
+RAMB36 async control check  
+The RAMB36E1 thinA_vga_bram/ram_reg_1 has an input control pin thinA_vga_bram/ram_reg_1/ENBWREN (net: thinA_vga_bram/vga_thinA_en) which is driven by a register (u_vga/u_tmg/v_cnt10_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#16 Warning
+RAMB36 async control check  
+The RAMB36E1 thinB_vga_bram/ram_reg_1 has an input control pin thinB_vga_bram/ram_reg_1/ENBWREN (net: thinB_vga_bram/vga_thinB_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#17 Warning
+RAMB36 async control check  
+The RAMB36E1 thinB_vga_bram/ram_reg_1 has an input control pin thinB_vga_bram/ram_reg_1/ENBWREN (net: thinB_vga_bram/vga_thinB_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#18 Warning
+RAMB36 async control check  
+The RAMB36E1 thinB_vga_bram/ram_reg_1 has an input control pin thinB_vga_bram/ram_reg_1/ENBWREN (net: thinB_vga_bram/vga_thinB_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#19 Warning
+RAMB36 async control check  
+The RAMB36E1 thinB_vga_bram/ram_reg_1 has an input control pin thinB_vga_bram/ram_reg_1/ENBWREN (net: thinB_vga_bram/vga_thinB_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#20 Warning
+RAMB36 async control check  
+The RAMB36E1 thinB_vga_bram/ram_reg_1 has an input control pin thinB_vga_bram/ram_reg_1/ENBWREN (net: thinB_vga_bram/vga_thinB_en) which is driven by a register (u_vga/u_tmg/h_cnt11_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#1 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[12] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[9]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/ctrl_reg[lsu_req]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#2 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[12] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[9]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_lsu_inst/mar_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#3 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[12] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[9]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_lsu_inst/misaligned_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#4 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_core_bus_switch_inst/FSM_onehot_state_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#5 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_core_bus_switch_inst/FSM_onehot_state_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#6 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_core_bus_switch_inst/a_req_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#7 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_core_bus_switch_inst/b_req_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#8 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/ctrl_reg[lsu_req]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#9 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/FSM_onehot_fetch_reg[state][1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#10 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/fetch_reg[pc][12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#11 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/prefetch_buffer[0].ipb_inst/r_pnt_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#12 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/prefetch_buffer[0].ipb_inst/r_pnt_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#13 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/prefetch_buffer[0].ipb_inst/w_pnt_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#14 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/prefetch_buffer[0].ipb_inst/w_pnt_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#15 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#16 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/prefetch_buffer[1].ipb_inst/r_pnt_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#17 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/prefetch_buffer[1].ipb_inst/w_pnt_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#18 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/prefetch_buffer[1].ipb_inst/w_pnt_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#19 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_lsu_inst/mar_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1840#20 Warning
+RAMB18 async control check  
+The RAMB18E1 u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg has an input control pin u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg/ADDRARDADDR[13] (net: u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/ADDRARDADDR[10]) which is driven by a register (u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_lsu_inst/misaligned_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+

@@ -1,0 +1,1382 @@
+
+*** Running vivado
+    with args -log top_nexys4ddr.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_nexys4ddr.tcl
+
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Sun Oct 12 22:19:01 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source top_nexys4ddr.tcl -notrace
+create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 491.832 ; gain = 201.602
+Command: read_checkpoint -auto_incremental -incremental C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/utils_1/imports/synth_1/binarizer_subsystem.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/utils_1/imports/synth_1/binarizer_subsystem.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top_nexys4ddr -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Device 21-9227] Part: xc7a100tcsg324-1 does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 18472
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1378.414 ; gain = 447.953
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'top_nexys4ddr' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:43]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'C:/Users/march/Vivado_projects/fingerprint/fingerprint.runs/synth_1/.Xil/Vivado-1656-LAPTOP-2TEH7FQA/realtime/clk_wiz_0_stub.vhdl:6' bound to instance 'u_clk_wiz' of component 'clk_wiz_0' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:260]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.runs/synth_1/.Xil/Vivado-1656-LAPTOP-2TEH7FQA/realtime/clk_wiz_0_stub.vhdl:17]
+INFO: [Synth 8-638] synthesizing module 'uart_rx' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/uart_rx.vhd:42]
+	Parameter CLK_FREQ bound to: 50000000 - type: integer 
+	Parameter BAUD_RATE bound to: 19200 - type: integer 
+	Parameter OVERSAMPLE bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'uart_rx' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/uart_rx.vhd:42]
+INFO: [Synth 8-638] synthesizing module 'data_bram' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/data_bram.vhd:70]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter IMG_WIDTH bound to: 68 - type: integer 
+	Parameter IMG_HEIGHT bound to: 118 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'data_bram' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/data_bram.vhd:70]
+INFO: [Synth 8-638] synthesizing module 'binarizer_subsystem' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd:65]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter IMG_WIDTH bound to: 68 - type: integer 
+	Parameter IMG_HEIGHT bound to: 118 - type: integer 
+	Parameter BLOCK_SIZE bound to: 8 - type: integer 
+	Parameter THRESH_OFFSET bound to: 12 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'binary_bram' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binary_bram.vhd:46]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'binary_bram' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binary_bram.vhd:46]
+INFO: [Synth 8-638] synthesizing module 'thr_bram' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/thr_bram.vhd:43]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'thr_bram' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/thr_bram.vhd:43]
+INFO: [Synth 8-638] synthesizing module 'threshold_builder' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:55]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter IMG_WIDTH bound to: 68 - type: integer 
+	Parameter IMG_HEIGHT bound to: 118 - type: integer 
+	Parameter BLOCK_SIZE bound to: 8 - type: integer 
+	Parameter THRESH_OFFSET bound to: 12 - type: integer 
+WARNING: [Synth 8-614] signal 'rd_en_s' is read in the process but is not in the sensitivity list [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:188]
+WARNING: [Synth 8-614] signal 'rd_addr_s' is read in the process but is not in the sensitivity list [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:188]
+WARNING: [Synth 8-614] signal 'thr_we_r' is read in the process but is not in the sensitivity list [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:188]
+WARNING: [Synth 8-614] signal 'thr_addr_r' is read in the process but is not in the sensitivity list [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:188]
+WARNING: [Synth 8-614] signal 'thr_data_r' is read in the process but is not in the sensitivity list [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:188]
+WARNING: [Synth 8-614] signal 'busy_r' is read in the process but is not in the sensitivity list [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:188]
+WARNING: [Synth 8-614] signal 'done_r' is read in the process but is not in the sensitivity list [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:188]
+INFO: [Synth 8-638] synthesizing module 'dp_ram_simple' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/dp_ram_simple.vhd:48]
+	Parameter ADDR_W bound to: 8 - type: integer 
+	Parameter DATA_W bound to: 16 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'dp_ram_simple' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/dp_ram_simple.vhd:48]
+INFO: [Synth 8-638] synthesizing module 'dp_ram_simple__parameterized0' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/dp_ram_simple.vhd:48]
+	Parameter ADDR_W bound to: 8 - type: integer 
+	Parameter DATA_W bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'dp_ram_simple__parameterized0' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/dp_ram_simple.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'threshold_builder' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:55]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter IMG_WIDTH bound to: 68 - type: integer 
+	Parameter IMG_HEIGHT bound to: 118 - type: integer 
+INFO: [Synth 8-3491] module 'image_window_reader' declared at 'C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/image_window_reader.vhd:25' bound to instance 'ir_inst' of component 'image_window_reader' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd:298]
+INFO: [Synth 8-638] synthesizing module 'image_window_reader' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/image_window_reader.vhd:70]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter IMG_WIDTH bound to: 68 - type: integer 
+	Parameter IMG_HEIGHT bound to: 118 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'image_window_reader' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/image_window_reader.vhd:70]
+INFO: [Synth 8-638] synthesizing module 'binarizer_stream' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_stream.vhd:55]
+	Parameter IMG_WIDTH bound to: 68 - type: integer 
+	Parameter IMG_HEIGHT bound to: 118 - type: integer 
+	Parameter BLOCK_SIZE bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'binarizer_stream' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_stream.vhd:55]
+INFO: [Synth 8-256] done synthesizing module 'binarizer_subsystem' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd:65]
+INFO: [Synth 8-638] synthesizing module 'dp_bram_byte' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/dp_bram_byte.vhd:49]
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'dp_bram_byte' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/dp_bram_byte.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'thinning_subsystem' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/thinning_subsystem.vhd:77]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter IMG_WIDTH bound to: 68 - type: integer 
+	Parameter IMG_HEIGHT bound to: 118 - type: integer 
+	Parameter MAX_ITERS bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'thinning_subsystem' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/thinning_subsystem.vhd:77]
+INFO: [Synth 8-638] synthesizing module 'minutiae_extractor' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/minutiae_extractor.vhd:65]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter IMG_WIDTH bound to: 68 - type: integer 
+	Parameter IMG_HEIGHT bound to: 118 - type: integer 
+	Parameter FEAT_DEPTH bound to: 512 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'minutiae_extractor' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/minutiae_extractor.vhd:65]
+INFO: [Synth 8-638] synthesizing module 'vga_subsystem' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_subsystem.vhd:57]
+	Parameter H_RES bound to: 640 - type: integer 
+	Parameter V_RES bound to: 480 - type: integer 
+	Parameter IMG_W bound to: 68 - type: integer 
+	Parameter IMG_H bound to: 118 - type: integer 
+	Parameter SCALE bound to: 4 - type: integer 
+	Parameter WIN_X0 bound to: 184 - type: integer 
+	Parameter WIN_Y0 bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'vga_timing_640x480' declared at 'C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_timing_640x480.vhd:5' bound to instance 'u_tmg' of component 'vga_timing_640x480' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_subsystem.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'vga_timing_640x480' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_timing_640x480.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'vga_timing_640x480' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_timing_640x480.vhd:18]
+	Parameter ADDR_W bound to: 13 - type: integer 
+	Parameter DATA_W bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'dp_ram_simple' declared at 'C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/dp_ram_simple.vhd:26' bound to instance 'u_ovl' of component 'dp_ram_simple' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_subsystem.vhd:270]
+INFO: [Synth 8-638] synthesizing module 'dp_ram_simple__parameterized2' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/dp_ram_simple.vhd:48]
+	Parameter ADDR_W bound to: 13 - type: integer 
+	Parameter DATA_W bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'dp_ram_simple__parameterized2' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/dp_ram_simple.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'vga_subsystem' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_subsystem.vhd:57]
+INFO: [Synth 8-638] synthesizing module 'minutiae_bram' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/minutiae_bram.vhd:53]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'minutiae_bram' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/minutiae_bram.vhd:53]
+INFO: [Synth 8-638] synthesizing module 'template_bram' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/template_bram.vhd:50]
+	Parameter ADDR_WIDTH bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'template_bram' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/template_bram.vhd:50]
+INFO: [Synth 8-638] synthesizing module 'cpu_subsystem' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/cpu_subsystem.vhd:102]
+	Parameter PROBE_BASE_G bound to: 32'b00100000000000000000000000000000 
+	Parameter PROBE_BYTES_G bound to: 2048 - type: integer 
+	Parameter TMPL_BASE_G bound to: 32'b00110000000000000000000000000000 
+	Parameter TMPL_BYTES_G bound to: 32768 - type: integer 
+	Parameter MBX_BASE_G bound to: 32'b01000000000000000000000000000000 
+	Parameter MBX_BYTES_G bound to: 256 - type: integer 
+	Parameter PROBE_ADDR_WIDTH_G bound to: 9 - type: integer 
+	Parameter TMPL_ADDR_WIDTH_G bound to: 13 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'neorv32_top' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_top.vhd:250]
+	Parameter CLOCK_FREQUENCY bound to: 50000000 - type: integer 
+	Parameter BOOT_MODE_SELECT bound to: 0 - type: integer 
+	Parameter IMEM_EN bound to: 1 - type: bool 
+	Parameter IMEM_SIZE bound to: 16384 - type: integer 
+	Parameter DMEM_EN bound to: 1 - type: bool 
+	Parameter DMEM_SIZE bound to: 8192 - type: integer 
+	Parameter ICACHE_EN bound to: 0 - type: bool 
+	Parameter DCACHE_EN bound to: 0 - type: bool 
+	Parameter XBUS_EN bound to: 1 - type: bool 
+INFO: [Synth 8-638] synthesizing module 'neorv32_sys_reset' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_sys.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_sys_reset' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_sys.vhd:34]
+INFO: [Synth 8-638] synthesizing module 'neorv32_sys_clock' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_sys.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_sys_clock' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_sys.vhd:106]
+INFO: [Synth 8-638] synthesizing module 'neorv32_cpu' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu.vhd:96]
+	Parameter HART_ID bound to: 0 - type: integer 
+	Parameter BOOT_ADDR bound to: 32'b11111111111000000000000000000000 
+	Parameter DEBUG_PARK_ADDR bound to: 32'b11111111111111111111111000000100 
+	Parameter DEBUG_EXC_ADDR bound to: 32'b11111111111111111111111000000000 
+	Parameter RISCV_ISA_C bound to: 0 - type: bool 
+	Parameter RISCV_ISA_E bound to: 0 - type: bool 
+	Parameter RISCV_ISA_M bound to: 0 - type: bool 
+	Parameter RISCV_ISA_U bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zaamo bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zalrsc bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zcb bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zba bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbb bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbkb bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbkc bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbkx bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbs bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zfinx bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zicntr bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zicond bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zihpm bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zknd bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zkne bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zknh bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zksed bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zksh bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zmmul bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zxcfu bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Sdext bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Sdtrig bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Smpmp bound to: 0 - type: bool 
+	Parameter CPU_TRACE_EN bound to: 0 - type: bool 
+	Parameter CPU_CONSTT_BR_EN bound to: 0 - type: bool 
+	Parameter CPU_FAST_MUL_EN bound to: 0 - type: bool 
+	Parameter CPU_FAST_SHIFT_EN bound to: 0 - type: bool 
+	Parameter CPU_RF_HW_RST_EN bound to: 0 - type: bool 
+	Parameter PMP_NUM_REGIONS bound to: 0 - type: integer 
+	Parameter PMP_MIN_GRANULARITY bound to: 4 - type: integer 
+	Parameter PMP_TOR_MODE_EN bound to: 0 - type: bool 
+	Parameter PMP_NAP_MODE_EN bound to: 0 - type: bool 
+	Parameter HPM_NUM_CNTS bound to: 0 - type: integer 
+	Parameter HPM_CNT_WIDTH bound to: 40 - type: integer 
+	Parameter NUM_HW_TRIGGERS bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'neorv32_cpu_frontend' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_frontend.vhd:40]
+	Parameter RISCV_C bound to: 0 - type: bool 
+	Parameter RISCV_ZCB bound to: 0 - type: bool 
+	Parameter AWIDTH bound to: 1 - type: integer 
+	Parameter DWIDTH bound to: 17 - type: integer 
+INFO: [Synth 8-3491] module 'neorv32_cpu_frontend_ipb' declared at 'C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_frontend.vhd:313' bound to instance 'ipb_inst' of component 'neorv32_cpu_frontend_ipb' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_frontend.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'neorv32_cpu_frontend_ipb' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_frontend.vhd:334]
+	Parameter AWIDTH bound to: 1 - type: integer 
+	Parameter DWIDTH bound to: 17 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_cpu_frontend_ipb' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_frontend.vhd:334]
+	Parameter AWIDTH bound to: 1 - type: integer 
+	Parameter DWIDTH bound to: 17 - type: integer 
+INFO: [Synth 8-3491] module 'neorv32_cpu_frontend_ipb' declared at 'C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_frontend.vhd:313' bound to instance 'ipb_inst' of component 'neorv32_cpu_frontend_ipb' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_frontend.vhd:169]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_cpu_frontend' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_frontend.vhd:40]
+INFO: [Synth 8-638] synthesizing module 'neorv32_cpu_control' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:98]
+	Parameter HART_ID bound to: 0 - type: integer 
+	Parameter BOOT_ADDR bound to: 32'b11111111111000000000000000000000 
+	Parameter DEBUG_PARK_ADDR bound to: 32'b11111111111111111111111000000100 
+	Parameter DEBUG_EXC_ADDR bound to: 32'b11111111111111111111111000000000 
+	Parameter RISCV_ISA_A bound to: 0 - type: bool 
+	Parameter RISCV_ISA_B bound to: 0 - type: bool 
+	Parameter RISCV_ISA_C bound to: 0 - type: bool 
+	Parameter RISCV_ISA_E bound to: 0 - type: bool 
+	Parameter RISCV_ISA_M bound to: 0 - type: bool 
+	Parameter RISCV_ISA_U bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zaamo bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zalrsc bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zcb bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zba bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbb bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbkb bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbkc bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbkx bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbs bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zfinx bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zicntr bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zicond bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zihpm bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zkn bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zknd bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zkne bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zknh bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zks bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zksed bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zksh bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zkt bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zmmul bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zxcfu bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Sdext bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Sdtrig bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Smpmp bound to: 0 - type: bool 
+	Parameter CPU_TRACE_EN bound to: 0 - type: bool 
+	Parameter CPU_CONSTT_BR_EN bound to: 0 - type: bool 
+	Parameter CPU_FAST_MUL_EN bound to: 0 - type: bool 
+	Parameter CPU_FAST_SHIFT_EN bound to: 0 - type: bool 
+	Parameter CPU_RF_HW_RST_EN bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_cpu_control' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:98]
+INFO: [Synth 8-638] synthesizing module 'neorv32_cpu_regfile' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_regfile.vhd:49]
+	Parameter RST_EN bound to: 0 - type: bool 
+	Parameter RVE_EN bound to: 0 - type: bool 
+	Parameter RS3_EN bound to: 0 - type: bool 
+INFO: [Synth 8-638] synthesizing module 'neorv32_prim_sdpram' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_prim.vhd:269]
+	Parameter AWIDTH bound to: 5 - type: integer 
+	Parameter DWIDTH bound to: 32 - type: integer 
+	Parameter OUTREG bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_prim_sdpram' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_prim.vhd:269]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_cpu_regfile' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_regfile.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'neorv32_cpu_alu' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_alu.vhd:60]
+	Parameter RISCV_ISA_M bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zba bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbb bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbkb bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbkc bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbkx bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zbs bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zfinx bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zicond bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zknd bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zkne bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zknh bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zksed bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zksh bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zmmul bound to: 0 - type: bool 
+	Parameter RISCV_ISA_Zxcfu bound to: 0 - type: bool 
+	Parameter FAST_MUL_EN bound to: 0 - type: bool 
+	Parameter FAST_SHIFT_EN bound to: 0 - type: bool 
+INFO: [Synth 8-226] default block is never used [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_alu.vhd:123]
+INFO: [Synth 8-638] synthesizing module 'neorv32_cpu_cp_shifter' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_cp_shifter.vhd:39]
+	Parameter FAST_SHIFT_EN bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_cpu_cp_shifter' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_cp_shifter.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_cpu_alu' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_alu.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'neorv32_cpu_lsu' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_lsu.vhd:37]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_cpu_lsu' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_lsu.vhd:37]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_cpu' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'neorv32_bus_switch' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:35]
+	Parameter ROUND_ROBIN_EN bound to: 0 - type: bool 
+	Parameter A_READ_ONLY bound to: 0 - type: bool 
+	Parameter B_READ_ONLY bound to: 1 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_bus_switch' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:35]
+INFO: [Synth 8-638] synthesizing module 'neorv32_bus_gateway' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:321]
+	Parameter TMO_INT bound to: 16 - type: integer 
+	Parameter TMO_EXT bound to: 2048 - type: integer 
+	Parameter A_EN bound to: 1 - type: bool 
+	Parameter A_BASE bound to: 32'b00000000000000000000000000000000 
+	Parameter A_SIZE bound to: 16384 - type: integer 
+	Parameter B_EN bound to: 1 - type: bool 
+	Parameter B_BASE bound to: 32'b10000000000000000000000000000000 
+	Parameter B_SIZE bound to: 8192 - type: integer 
+	Parameter C_EN bound to: 1 - type: bool 
+	Parameter C_BASE bound to: 32'b11111111111000000000000000000000 
+	Parameter C_SIZE bound to: 2097152 - type: integer 
+	Parameter X_EN bound to: 1 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_bus_gateway' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:321]
+INFO: [Synth 8-638] synthesizing module 'neorv32_imem' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_imem.vhd:33]
+	Parameter MEM_SIZE bound to: 16384 - type: integer 
+	Parameter MEM_INIT bound to: 0 - type: bool 
+	Parameter OUTREG_EN bound to: 0 - type: bool 
+INFO: [Synth 8-638] synthesizing module 'neorv32_prim_spram' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_prim.vhd:186]
+	Parameter AWIDTH bound to: 12 - type: integer 
+	Parameter DWIDTH bound to: 8 - type: integer 
+	Parameter OUTREG bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_prim_spram' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_prim.vhd:186]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_imem' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_imem.vhd:33]
+INFO: [Synth 8-638] synthesizing module 'neorv32_dmem' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_dmem.vhd:31]
+	Parameter MEM_SIZE bound to: 8192 - type: integer 
+	Parameter OUTREG_EN bound to: 0 - type: bool 
+INFO: [Synth 8-638] synthesizing module 'neorv32_prim_spram__parameterized0' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_prim.vhd:186]
+	Parameter AWIDTH bound to: 11 - type: integer 
+	Parameter DWIDTH bound to: 8 - type: integer 
+	Parameter OUTREG bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_prim_spram__parameterized0' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_prim.vhd:186]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_dmem' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_dmem.vhd:31]
+INFO: [Synth 8-638] synthesizing module 'neorv32_xbus' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_xbus.vhd:45]
+	Parameter REGSTAGE_EN bound to: 0 - type: bool 
+INFO: [Synth 8-638] synthesizing module 'neorv32_bus_reg' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:204]
+	Parameter REQ_REG_EN bound to: 0 - type: bool 
+	Parameter RSP_REG_EN bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_bus_reg' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:204]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_xbus' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_xbus.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'neorv32_bus_io_switch' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:573]
+	Parameter INREG_EN bound to: 1 - type: bool 
+	Parameter OUTREG_EN bound to: 1 - type: bool 
+	Parameter DEV_SIZE bound to: 65536 - type: integer 
+	Parameter DEV_00_EN bound to: 1 - type: bool 
+	Parameter DEV_00_BASE bound to: 32'b11111111111000000000000000000000 
+	Parameter DEV_01_EN bound to: 0 - type: bool 
+	Parameter DEV_01_BASE bound to: 0 - type: integer 
+	Parameter DEV_02_EN bound to: 0 - type: bool 
+	Parameter DEV_02_BASE bound to: 0 - type: integer 
+	Parameter DEV_03_EN bound to: 0 - type: bool 
+	Parameter DEV_03_BASE bound to: 0 - type: integer 
+	Parameter DEV_04_EN bound to: 0 - type: bool 
+	Parameter DEV_04_BASE bound to: 0 - type: integer 
+	Parameter DEV_05_EN bound to: 0 - type: bool 
+	Parameter DEV_05_BASE bound to: 0 - type: integer 
+	Parameter DEV_06_EN bound to: 0 - type: bool 
+	Parameter DEV_06_BASE bound to: 0 - type: integer 
+	Parameter DEV_07_EN bound to: 0 - type: bool 
+	Parameter DEV_07_BASE bound to: 0 - type: integer 
+	Parameter DEV_08_EN bound to: 0 - type: bool 
+	Parameter DEV_08_BASE bound to: 0 - type: integer 
+	Parameter DEV_09_EN bound to: 0 - type: bool 
+	Parameter DEV_09_BASE bound to: 0 - type: integer 
+	Parameter DEV_10_EN bound to: 0 - type: bool 
+	Parameter DEV_10_BASE bound to: 32'b11111111111010100000000000000000 
+	Parameter DEV_11_EN bound to: 0 - type: bool 
+	Parameter DEV_11_BASE bound to: 32'b11111111111010110000000000000000 
+	Parameter DEV_12_EN bound to: 0 - type: bool 
+	Parameter DEV_12_BASE bound to: 32'b11111111111011000000000000000000 
+	Parameter DEV_13_EN bound to: 0 - type: bool 
+	Parameter DEV_13_BASE bound to: 32'b11111111111011010000000000000000 
+	Parameter DEV_14_EN bound to: 0 - type: bool 
+	Parameter DEV_14_BASE bound to: 0 - type: integer 
+	Parameter DEV_15_EN bound to: 0 - type: bool 
+	Parameter DEV_15_BASE bound to: 0 - type: integer 
+	Parameter DEV_16_EN bound to: 0 - type: bool 
+	Parameter DEV_16_BASE bound to: 32'b11111111111100000000000000000000 
+	Parameter DEV_17_EN bound to: 0 - type: bool 
+	Parameter DEV_17_BASE bound to: 32'b11111111111100010000000000000000 
+	Parameter DEV_18_EN bound to: 0 - type: bool 
+	Parameter DEV_18_BASE bound to: 32'b11111111111100100000000000000000 
+	Parameter DEV_19_EN bound to: 0 - type: bool 
+	Parameter DEV_19_BASE bound to: 32'b11111111111100110000000000000000 
+	Parameter DEV_20_EN bound to: 0 - type: bool 
+	Parameter DEV_20_BASE bound to: 32'b11111111111101000000000000000000 
+	Parameter DEV_21_EN bound to: 1 - type: bool 
+	Parameter DEV_21_BASE bound to: 32'b11111111111101010000000000000000 
+	Parameter DEV_22_EN bound to: 0 - type: bool 
+	Parameter DEV_22_BASE bound to: 32'b11111111111101100000000000000000 
+	Parameter DEV_23_EN bound to: 0 - type: bool 
+	Parameter DEV_23_BASE bound to: 32'b11111111111101110000000000000000 
+	Parameter DEV_24_EN bound to: 0 - type: bool 
+	Parameter DEV_24_BASE bound to: 32'b11111111111110000000000000000000 
+	Parameter DEV_25_EN bound to: 0 - type: bool 
+	Parameter DEV_25_BASE bound to: 32'b11111111111110010000000000000000 
+	Parameter DEV_26_EN bound to: 0 - type: bool 
+	Parameter DEV_26_BASE bound to: 32'b11111111111110100000000000000000 
+	Parameter DEV_27_EN bound to: 0 - type: bool 
+	Parameter DEV_27_BASE bound to: 32'b11111111111110110000000000000000 
+	Parameter DEV_28_EN bound to: 0 - type: bool 
+	Parameter DEV_28_BASE bound to: 32'b11111111111111000000000000000000 
+	Parameter DEV_29_EN bound to: 0 - type: bool 
+	Parameter DEV_29_BASE bound to: 32'b11111111111111010000000000000000 
+	Parameter DEV_30_EN bound to: 1 - type: bool 
+	Parameter DEV_30_BASE bound to: 32'b11111111111111100000000000000000 
+	Parameter DEV_31_EN bound to: 0 - type: bool 
+	Parameter DEV_31_BASE bound to: 32'b11111111111111110000000000000000 
+	Parameter REQ_REG_EN bound to: 1 - type: bool 
+	Parameter RSP_REG_EN bound to: 1 - type: bool 
+INFO: [Synth 8-3491] module 'neorv32_bus_reg' declared at 'C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:187' bound to instance 'neorv32_bus_reg_inst' of component 'neorv32_bus_reg' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:632]
+INFO: [Synth 8-638] synthesizing module 'neorv32_bus_reg__parameterized1' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:204]
+	Parameter REQ_REG_EN bound to: 1 - type: bool 
+	Parameter RSP_REG_EN bound to: 1 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_bus_reg__parameterized1' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:204]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_bus_io_switch' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:573]
+INFO: [Synth 8-638] synthesizing module 'neorv32_boot_rom' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_boot_rom.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_boot_rom' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_boot_rom.vhd:28]
+INFO: [Synth 8-638] synthesizing module 'neorv32_uart' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_uart.vhd:45]
+	Parameter SIM_MODE_EN bound to: 0 - type: bool 
+	Parameter SIM_LOG_FILE bound to: neorv32.uart0.log - type: string 
+	Parameter UART_RX_FIFO bound to: 1 - type: integer 
+	Parameter UART_TX_FIFO bound to: 1 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'neorv32_prim_fifo' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_prim.vhd:46]
+	Parameter AWIDTH bound to: 0 - type: integer 
+	Parameter DWIDTH bound to: 8 - type: integer 
+	Parameter OUTGATE bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_prim_fifo' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_prim.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_uart' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_uart.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'neorv32_sysinfo' [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_sysinfo.vhd:67]
+	Parameter BUS_TMO_INT bound to: 16 - type: integer 
+	Parameter BUS_TMO_EXT bound to: 2048 - type: integer 
+	Parameter NUM_HARTS bound to: 1 - type: integer 
+	Parameter CLOCK_FREQUENCY bound to: 50000000 - type: integer 
+	Parameter BOOT_MODE_SELECT bound to: 0 - type: integer 
+	Parameter INT_BOOTLOADER_EN bound to: 1 - type: bool 
+	Parameter IMEM_EN bound to: 1 - type: bool 
+	Parameter IMEM_ROM bound to: 0 - type: bool 
+	Parameter IMEM_SIZE bound to: 16384 - type: integer 
+	Parameter DMEM_EN bound to: 1 - type: bool 
+	Parameter DMEM_SIZE bound to: 8192 - type: integer 
+	Parameter ICACHE_EN bound to: 0 - type: bool 
+	Parameter ICACHE_NUM_BLOCKS bound to: 4 - type: integer 
+	Parameter DCACHE_EN bound to: 0 - type: bool 
+	Parameter DCACHE_NUM_BLOCKS bound to: 4 - type: integer 
+	Parameter CACHE_BLOCK_SIZE bound to: 64 - type: integer 
+	Parameter CACHE_BURSTS_EN bound to: 1 - type: bool 
+	Parameter XBUS_EN bound to: 1 - type: bool 
+	Parameter OCD_EN bound to: 0 - type: bool 
+	Parameter OCD_AUTH bound to: 0 - type: bool 
+	Parameter IO_GPIO_EN bound to: 0 - type: bool 
+	Parameter IO_CLINT_EN bound to: 0 - type: bool 
+	Parameter IO_UART0_EN bound to: 1 - type: bool 
+	Parameter IO_UART1_EN bound to: 0 - type: bool 
+	Parameter IO_SPI_EN bound to: 0 - type: bool 
+	Parameter IO_SDI_EN bound to: 0 - type: bool 
+	Parameter IO_TWI_EN bound to: 0 - type: bool 
+	Parameter IO_TWD_EN bound to: 0 - type: bool 
+	Parameter IO_PWM_EN bound to: 0 - type: bool 
+	Parameter IO_WDT_EN bound to: 0 - type: bool 
+	Parameter IO_TRNG_EN bound to: 0 - type: bool 
+	Parameter IO_CFS_EN bound to: 0 - type: bool 
+	Parameter IO_NEOLED_EN bound to: 0 - type: bool 
+	Parameter IO_GPTMR_EN bound to: 0 - type: bool 
+	Parameter IO_ONEWIRE_EN bound to: 0 - type: bool 
+	Parameter IO_DMA_EN bound to: 0 - type: bool 
+	Parameter IO_SLINK_EN bound to: 0 - type: bool 
+	Parameter IO_TRACER_EN bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'neorv32_sysinfo' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_sysinfo.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'neorv32_top' (0#1) [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_top.vhd:250]
+INFO: [Synth 8-638] synthesizing module 'xbus_simple_bridge' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/xbus_simple_bridge.vhd:58]
+INFO: [Synth 8-256] done synthesizing module 'xbus_simple_bridge' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/xbus_simple_bridge.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'cpu_bus_decode' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/cpu_bus_decode.vhd:82]
+	Parameter PROBE_BASE_G bound to: 32'b00100000000000000000000000000000 
+	Parameter PROBE_BYTES_G bound to: 2048 - type: integer 
+	Parameter TMPL_BASE_G bound to: 32'b00110000000000000000000000000000 
+	Parameter TMPL_BYTES_G bound to: 32768 - type: integer 
+	Parameter MBX_BASE_G bound to: 32'b01000000000000000000000000000000 
+	Parameter MBX_BYTES_G bound to: 256 - type: integer 
+	Parameter PROBE_ADDR_WIDTH_G bound to: 9 - type: integer 
+	Parameter TMPL_ADDR_WIDTH_G bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'cpu_bus_decode' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/cpu_bus_decode.vhd:82]
+INFO: [Synth 8-256] done synthesizing module 'cpu_subsystem' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/cpu_subsystem.vhd:102]
+INFO: [Synth 8-638] synthesizing module 'control_unit' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:91]
+	Parameter IMG_WIDTH bound to: 68 - type: integer 
+WARNING: [Synth 8-614] signal 'sw_single' is read in the process but is not in the sensitivity list [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:244]
+INFO: [Synth 8-256] done synthesizing module 'control_unit' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:91]
+INFO: [Synth 8-638] synthesizing module 'seven_segment_driver' [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/segment_driver.vhd:49]
+	Parameter CNT_WIDTH bound to: 18 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'seven_segment_driver' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/segment_driver.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'top_nexys4ddr' (0#1) [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:43]
+WARNING: [Synth 8-6014] Unused sequential element parity_bit_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/uart_rx.vhd:166]
+WARNING: [Synth 8-6014] Unused sequential element q_a_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/data_bram.vhd:155]
+WARNING: [Synth 8-6014] Unused sequential element sum_q_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:275]
+WARNING: [Synth 8-6014] Unused sequential element cnt_a_en_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:242]
+WARNING: [Synth 8-6014] Unused sequential element cnt_a_we_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:243]
+WARNING: [Synth 8-6014] Unused sequential element cnt_b_en_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:247]
+WARNING: [Synth 8-6014] Unused sequential element thr_en_r_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_stream.vhd:74]
+WARNING: [Synth 8-6014] Unused sequential element bin_a_we_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/binarizer_subsystem.vhd:228]
+WARNING: [Synth 8-6014] Unused sequential element md_sync1_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_subsystem.vhd:222]
+WARNING: [Synth 8-6014] Unused sequential element md_sync2_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_subsystem.vhd:222]
+WARNING: [Synth 8-6014] Unused sequential element md_pe_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/vga_subsystem.vhd:222]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[if_reset] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[if_ready] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[pc_cur] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[pc_nxt] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[pc_ret] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[rf_rs1] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[rf_rs2] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[rf_rd] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[alu_imm] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[lsu_mo_we] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[lsu_priv] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[csr_we] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[csr_re] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[csr_addr] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[csr_wdata] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[cnt_halt] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[cnt_event] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[ir_funct3] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[ir_funct12] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[ir_opcode] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[cpu_priv] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[cpu_trap] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[cpu_sync_exc] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element ctrl_reg[cpu_debug] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:260]
+WARNING: [Synth 8-6014] Unused sequential element csr_reg[mcounteren_cy] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:1033]
+WARNING: [Synth 8-6014] Unused sequential element csr_reg[mcounteren_ir] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:1033]
+WARNING: [Synth 8-6014] Unused sequential element csr_reg[dpc] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:1033]
+WARNING: [Synth 8-6014] Unused sequential element csr_reg[dscratch0] was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_cpu_control.vhd:1033]
+WARNING: [Synth 8-6014] Unused sequential element sel_q_reg was removed.  [C:/Users/march/Desktop/neorv32/rtl/core/neorv32_bus.vhd:50]
+WARNING: [Synth 8-6014] Unused sequential element pause_meta_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:147]
+WARNING: [Synth 8-6014] Unused sequential element pause_sync0_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:147]
+WARNING: [Synth 8-6014] Unused sequential element pause_sync1_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:147]
+WARNING: [Synth 8-6014] Unused sequential element pause_tgl_p_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:147]
+WARNING: [Synth 8-6014] Unused sequential element ce_run_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:168]
+WARNING: [Synth 8-6014] Unused sequential element ce_step_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:179]
+WARNING: [Synth 8-6014] Unused sequential element step_cnt_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:179]
+WARNING: [Synth 8-6014] Unused sequential element step_state_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:179]
+WARNING: [Synth 8-3848] Net proc_ce in module/entity control_unit does not have driver. [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/control_unit.vhd:67]
+WARNING: [Synth 8-6014] Unused sequential element rstn_sys_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:272]
+WARNING: [Synth 8-6014] Unused sequential element rstn_pix_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:280]
+WARNING: [Synth 8-6014] Unused sequential element rst_pix_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:281]
+WARNING: [Synth 8-6014] Unused sequential element copy_done_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:534]
+WARNING: [Synth 8-6014] Unused sequential element seen_A_nz_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:551]
+WARNING: [Synth 8-6014] Unused sequential element seen_B_nz_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:552]
+WARNING: [Synth 8-6014] Unused sequential element wr_pulses_reg was removed.  [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/top_nexys4ddr.vhd:860]
+WARNING: [Synth 8-3917] design top_nexys4ddr has port LED[8] driven by constant 0
+WARNING: [Synth 8-3917] design top_nexys4ddr has port LED[5] driven by constant 0
+WARNING: [Synth 8-7129] Port proc_ce in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw_vga_sel[1] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw_vga_sel[0] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port btn_pause in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bin_busy in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thin_busy in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port thin_done_p in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port min_busy in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port min_overflow in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[31] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[30] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[29] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[28] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[27] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[26] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[25] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[24] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[23] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[22] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[21] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[20] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[19] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[18] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[17] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[16] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[15] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[14] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[13] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[12] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[11] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[10] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[9] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[8] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[7] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[6] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[5] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[4] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[3] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[2] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cu_status[1] in module control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module xbus_simple_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst_n in module xbus_simple_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port xbus_cti_o[2] in module xbus_simple_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port xbus_cti_o[1] in module xbus_simple_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port xbus_cti_o[0] in module xbus_simple_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port xbus_tag_o[2] in module xbus_simple_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port xbus_tag_o[1] in module xbus_simple_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port xbus_tag_o[0] in module xbus_simple_bridge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][31] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][30] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][29] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][28] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][27] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][26] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][25] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][24] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][23] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][22] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][21] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][20] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][19] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][18] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][17] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][16] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][15] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][14] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][13] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][12] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][11] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][10] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][9] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][8] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][7] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][6] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][5] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][4] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][1] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][0] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[ben][3] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[ben][2] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[ben][1] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[ben][0] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[src] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[priv] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[debug] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[amo] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[amoop][3] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[amoop][2] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[amoop][1] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[amoop][0] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[burst] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[lock] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[fence] in module neorv32_sysinfo is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][31] in module neorv32_uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][30] in module neorv32_uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][29] in module neorv32_uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][28] in module neorv32_uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][27] in module neorv32_uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][26] in module neorv32_uart is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bus_req_i[addr][25] in module neorv32_uart is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1587.746 ; gain = 657.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1587.746 ; gain = 657.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1587.746 ; gain = 657.285
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.156 . Memory (MB): peak = 1587.746 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/march/Vivado_projects/fingerprint/fingerprint.gen/sources_1/ip/clk_wiz_0_5/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'u_clk_wiz'
+Finished Parsing XDC File [c:/Users/march/Vivado_projects/fingerprint/fingerprint.gen/sources_1/ip/clk_wiz_0_5/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'u_clk_wiz'
+Parsing XDC File [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/constrs_1/new/constr.xdc]
+Finished Parsing XDC File [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/constrs_1/new/constr.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/constrs_1/new/constr.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_nexys4ddr_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_nexys4ddr_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1692.336 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 1692.336 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1692.336 ; gain = 761.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1692.336 ; gain = 761.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  c:/Users/march/Vivado_projects/fingerprint/fingerprint.gen/sources_1/ip/clk_wiz_0_5/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  c:/Users/march/Vivado_projects/fingerprint/fingerprint.gen/sources_1/ip/clk_wiz_0_5/clk_wiz_0/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property KEEP_HIERARCHY = SOFT for u_clk_wiz. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1692.336 ; gain = 761.875
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'threshold_builder'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'image_window_reader'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'binarizer_subsystem'
+INFO: [Synth 8-802] inferred FSM for state register 'cur_state_reg' in module 'minutiae_extractor'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'vga_subsystem'
+INFO: [Synth 8-802] inferred FSM for state register 'fetch_reg[state]' in module 'neorv32_cpu_frontend'
+INFO: [Synth 8-802] inferred FSM for state register 'exe_engine_reg[state]' in module 'neorv32_cpu_control'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'neorv32_bus_switch'
+INFO: [Synth 8-802] inferred FSM for state register 'keeper_reg[state]' in module 'neorv32_bus_gateway'
+INFO: [Synth 8-802] inferred FSM for state register 'st_reg' in module 'control_unit'
+INFO: [Synth 8-802] inferred FSM for state register 'cst_reg' in module 'top_nexys4ddr'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              000 |                              000
+                   start |                              001 |                              001
+                    data |                              010 |                              010
+                  parity |                              011 |                              011
+                    stop |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              000 |                              000
+               clear_acc |                              001 |                              001
+              pass1_read |                              010 |                              010
+             pass1_write |                              011 |                              011
+           make_thr_read |                              100 |                              100
+            make_thr_mul |                              101 |                              101
+          make_thr_write |                              110 |                              110
+                    done |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'threshold_builder'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              000 |                              000
+               fill_row0 |                              001 |                              001
+               fill_row1 |                              010 |                              010
+             stream_rows |                              011 |                              011
+                  finish |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'image_window_reader'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                           000001 |                              000
+                  run_tb |                           100000 |                              001
+               clear_bin |                           010000 |                              010
+                start_ir |                           001000 |                              011
+                 run_bin |                           000100 |                              100
+                    done |                           000010 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'binarizer_subsystem'
+INFO: [Synth 8-3971] The signal "dp_bram_byte:/ram_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                            00001 |                              000
+                    prep |                            00010 |                              001
+            start_reader |                            00100 |                              010
+                     run |                            01000 |                              011
+                    done |                            10000 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'cur_state_reg' using encoding 'one-hot' in module 'minutiae_extractor'
+WARNING: [Synth 8-6430] The Block RAM "minutiae_bram:/ram_reg" may get memory collision error if read and write address collide. Use attribute (* rw_addr_collision= "yes" *) to avoid collision 
+WARNING: [Synth 8-6841] Block RAM (ram_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
+(address width (13) is more than optimal threshold of 12. Implementing using BWWE will require more logic and timing would be suboptimal. Please use attribute ram_decomp = power if BWWE is desired.)
+INFO: [Synth 8-3971] The signal "template_bram:/ram_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               s_restart |                              001 |                               00
+               s_request |                              010 |                               01
+               s_pending |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'fetch_reg[state]' using encoding 'one-hot' in module 'neorv32_cpu_frontend'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              ex_restart |                             0011 |                             0000
+             ex_branched |                             1000 |                             1000
+             ex_dispatch |                             0001 |                             0001
+           ex_trap_enter |                             0100 |                             0010
+              ex_execute |                             0111 |                             0101
+             ex_alu_wait |                             1011 |                             0110
+              ex_mem_req |                             0110 |                             1010
+              ex_mem_rsp |                             0101 |                             1011
+               ex_branch |                             1010 |                             0111
+               ex_system |                             1001 |                             1001
+            ex_trap_exit |                             0010 |                             0011
+                ex_sleep |                             0000 |                             0100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'exe_engine_reg[state]' using encoding 'sequential' in module 'neorv32_cpu_control'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               00
+*
+                s_busy_a |                             0010 |                               01
+                s_busy_b |                             0100 |                               10
+                 iSTATE0 |                             1000 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'neorv32_bus_switch'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE0 |                              001 |                               00
+                  iSTATE |                              010 |                               01
+                 iSTATE1 |                              100 |                               11
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'keeper_reg[state]' using encoding 'one-hot' in module 'neorv32_bus_gateway'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  s_idle |                             0000 |                             0000
+            s_wait_frame |                             0001 |                             0001
+         s_wait_step_bin |                             0010 |                             0010
+               s_run_bin |                             0011 |                             0011
+              s_wait_bin |                             0100 |                             0100
+        s_wait_step_thin |                             0101 |                             0101
+              s_run_thin |                             0110 |                             0110
+         s_wait_step_min |                             0111 |                             1000
+               s_run_min |                             1000 |                             1001
+              s_wait_min |                             1001 |                             1010
+              s_cpu_prep |                             1010 |                             1011
+              s_cpu_kick |                             1011 |                             1100
+              s_cpu_wait |                             1100 |                             1101
+                  s_done |                             1101 |                             1110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'st_reg' using encoding 'sequential' in module 'control_unit'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  c_idle |                              000 |                              000
+             c_copy_a_rd |                              001 |                              001
+             c_copy_a_wr |                              010 |                              010
+             c_copy_b_rd |                              011 |                              011
+             c_copy_b_wr |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'cst_reg' using encoding 'sequential' in module 'top_nexys4ddr'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 1692.336 ; gain = 761.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   33 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 4     
+	   2 Input   31 Bit       Adders := 2     
+	   2 Input   17 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 1     
+	   2 Input   13 Bit       Adders := 9     
+	   2 Input   12 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 3     
+	   2 Input   10 Bit       Adders := 5     
+	   2 Input    9 Bit       Adders := 3     
+	   3 Input    9 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 9     
+	   2 Input    7 Bit       Adders := 10    
+	   2 Input    5 Bit       Adders := 4     
+	   2 Input    4 Bit       Adders := 50    
+	   8 Input    4 Bit       Adders := 3     
+	   2 Input    3 Bit       Adders := 3     
+	   2 Input    2 Bit       Adders := 4     
+	   2 Input    1 Bit       Adders := 4     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 3     
++---Registers : 
+	               32 Bit    Registers := 44    
+	               25 Bit    Registers := 1     
+	               20 Bit    Registers := 2     
+	               16 Bit    Registers := 6     
+	               13 Bit    Registers := 18    
+	               12 Bit    Registers := 4     
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 6     
+	                9 Bit    Registers := 6     
+	                8 Bit    Registers := 80    
+	                7 Bit    Registers := 8     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 12    
+	                3 Bit    Registers := 6     
+	                2 Bit    Registers := 17    
+	                1 Bit    Registers := 168   
++---RAMs : 
+	             256K Bit	(8192 X 32 bit)          RAMs := 1     
+	              64K Bit	(8192 X 8 bit)          RAMs := 8     
+	              32K Bit	(4096 X 8 bit)          RAMs := 4     
+	              16K Bit	(512 X 32 bit)          RAMs := 2     
+	              16K Bit	(2048 X 8 bit)          RAMs := 4     
+	               4K Bit	(256 X 16 bit)          RAMs := 1     
+	               2K Bit	(256 X 8 bit)          RAMs := 2     
+	             1024 Bit	(32 X 32 bit)          RAMs := 1     
+	              544 Bit	(68 X 8 bit)          RAMs := 9     
++---ROMs : 
+	                    ROMs := 1     
++---Muxes : 
+	   2 Input   33 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 54    
+	   4 Input   32 Bit        Muxes := 11    
+	   3 Input   32 Bit        Muxes := 1     
+	  12 Input   32 Bit        Muxes := 2     
+	  11 Input   32 Bit        Muxes := 1     
+	  14 Input   32 Bit        Muxes := 2     
+	   2 Input   31 Bit        Muxes := 6     
+	   8 Input   16 Bit        Muxes := 1     
+	   8 Input   13 Bit        Muxes := 3     
+	   5 Input   13 Bit        Muxes := 7     
+	   2 Input   13 Bit        Muxes := 13    
+	   3 Input   13 Bit        Muxes := 2     
+	   6 Input   13 Bit        Muxes := 1     
+	   4 Input   13 Bit        Muxes := 3     
+	   7 Input   13 Bit        Muxes := 2     
+	   2 Input   12 Bit        Muxes := 1     
+	   3 Input   12 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 7     
+	   2 Input    9 Bit        Muxes := 5     
+	   7 Input    9 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 30    
+	   5 Input    8 Bit        Muxes := 1     
+	   8 Input    8 Bit        Muxes := 3     
+	   3 Input    8 Bit        Muxes := 3     
+	   4 Input    8 Bit        Muxes := 2     
+	   8 Input    7 Bit        Muxes := 2     
+	   5 Input    7 Bit        Muxes := 6     
+	   2 Input    7 Bit        Muxes := 7     
+	   2 Input    6 Bit        Muxes := 2     
+	  14 Input    6 Bit        Muxes := 1     
+	   5 Input    5 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 6     
+	   5 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 68    
+	   7 Input    4 Bit        Muxes := 1     
+	  12 Input    4 Bit        Muxes := 1     
+	   9 Input    4 Bit        Muxes := 1     
+	   3 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 4     
+	  14 Input    4 Bit        Muxes := 3     
+	   5 Input    3 Bit        Muxes := 8     
+	   2 Input    3 Bit        Muxes := 17    
+	   8 Input    3 Bit        Muxes := 3     
+	   3 Input    3 Bit        Muxes := 3     
+	  13 Input    3 Bit        Muxes := 2     
+	   7 Input    3 Bit        Muxes := 2     
+	  12 Input    3 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 4     
+	   2 Input    2 Bit        Muxes := 9     
+	   2 Input    1 Bit        Muxes := 187   
+	   5 Input    1 Bit        Muxes := 57    
+	   8 Input    1 Bit        Muxes := 27    
+	   3 Input    1 Bit        Muxes := 13    
+	   6 Input    1 Bit        Muxes := 6     
+	   4 Input    1 Bit        Muxes := 15    
+	   7 Input    1 Bit        Muxes := 5     
+	  12 Input    1 Bit        Muxes := 24    
+	  11 Input    1 Bit        Muxes := 6     
+	  14 Input    1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP tb_inst/prod_q0, operation Mode is: A*B.
+DSP Report: operator tb_inst/prod_q0 is absorbed into DSP tb_inst/prod_q0.
+DSP Report: Generating DSP bin_stream_inst/bin_addr_r_reg, operation Mode is: (C'+(A:0x44)*B'')'.
+DSP Report: register ir_inst/center_y_r_reg is absorbed into DSP bin_stream_inst/bin_addr_r_reg.
+DSP Report: register bin_stream_inst/y_d_reg is absorbed into DSP bin_stream_inst/bin_addr_r_reg.
+DSP Report: register bin_stream_inst/x_d_reg is absorbed into DSP bin_stream_inst/bin_addr_r_reg.
+DSP Report: register bin_stream_inst/bin_addr_r_reg is absorbed into DSP bin_stream_inst/bin_addr_r_reg.
+DSP Report: operator bin_stream_inst/bin_addr_r0 is absorbed into DSP bin_stream_inst/bin_addr_r_reg.
+DSP Report: operator bin_stream_inst/bin_addr_r1 is absorbed into DSP bin_stream_inst/bin_addr_r_reg.
+DSP Report: Generating DSP addr_of, operation Mode is: (C' or 0)+(((D:0x1ffffff)+A2)*(B:0x44) or 0).
+DSP Report: register win_reader_inst/row_cnt_reg is absorbed into DSP addr_of.
+DSP Report: register addr_of is absorbed into DSP addr_of.
+DSP Report: register win_reader_inst/center_y_r_reg is absorbed into DSP addr_of.
+DSP Report: operator addr_of is absorbed into DSP addr_of.
+DSP Report: operator addr_of0 is absorbed into DSP addr_of.
+DSP Report: operator win_reader_inst/center_y_r0 is absorbed into DSP addr_of.
+DSP Report: Generating DSP b_addr0, operation Mode is: C+(A:0x44)*B.
+DSP Report: operator b_addr0 is absorbed into DSP b_addr0.
+DSP Report: operator b_addr1 is absorbed into DSP b_addr0.
+WARNING: [Synth 8-3917] design top_nexys4ddr has port LED[8] driven by constant 0
+WARNING: [Synth 8-3917] design top_nexys4ddr has port LED[5] driven by constant 0
+WARNING: [Synth 8-6014] Unused sequential element bin_bridge_bram/ram_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element thinA_bram/ram_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element thinB_bram/ram_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element thinA_vga_bram/ram_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element thinB_vga_bram/ram_reg was removed. 
+INFO: [Synth 8-5784] Optimized 6 bits of RAM "u_ovl/ram_reg" due to constant propagation. Old ram width 8 bits, new ram width 2 bits.
+RAM Pipeline Warning: Read Address Register Found For RAM min_bram_vga/ram_reg. We will not be able to pipeline it. This may degrade performance. 
+RAM Pipeline Warning: Read Address Register Found For RAM min_bram_cpu/ram_reg. We will not be able to pipeline it. This may degrade performance. 
+WARNING: [Synth 8-6841] Block RAM (ram_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
+(address width (13) is more than optimal threshold of 12. Implementing using BWWE will require more logic and timing would be suboptimal. Please use attribute ram_decomp = power if BWWE is desired.)
+INFO: [Synth 8-3971] The signal "tmpl_bram/ram_reg" was recognized as a true dual port RAM template.
+WARNING: [Synth 8-3332] Sequential element (i_0) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_2) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_4) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_6) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_8) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_10) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_12) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_14) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_16) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_18) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_20) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_22) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_24) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_26) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_28) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_30) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_32) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_34) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_36) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_38) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_40) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_42) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_44) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_46) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_48) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_50) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_52) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_54) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_56) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_58) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_60) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_62) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (i_64) is unused and will be removed from module template_bram.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[3]) is unused and will be removed from module neorv32_bus_switch.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_state_reg[0]) is unused and will be removed from module neorv32_bus_switch.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:05 ; elapsed = 00:01:09 . Memory (MB): peak = 1692.336 ; gain = 761.875
+---------------------------------------------------------------------------------
+ Sort Area is  tb_inst/prod_q0_0 : 0 0 : 878 878 : Used 1 time 0
+ Sort Area is  addr_of_4 : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is  bin_stream_inst/bin_addr_r_reg_2 : 0 0 : 137 137 : Used 1 time 0
+ Sort Area is  b_addr0_6 : 0 0 : 97 97 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++-----------------+------------+---------------+----------------+
+|Module Name      | RTL Object | Depth x Width | Implemented As | 
++-----------------+------------+---------------+----------------+
+|neorv32_boot_rom | rdata_reg  | 1024x32       | Block RAM      | 
++-----------------+------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping Report (see note below)
++---------------------------------------------------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                                                          | RTL Object                                                           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++---------------------------------------------------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|data_bram_inst                                                       | ram_reg                                                              | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|u_bin                                                                | bin_bram_inst/mem_reg                                                | 8 K x 8(NO_CHANGE)     | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|u_bin                                                                | thr_bram_inst/mem_reg                                                | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|u_bin                                                                | tb_inst/u_sum/ram_reg                                                | 256 x 16(READ_FIRST)   | W | R | 256 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|u_bin                                                                | tb_inst/u_cnt/ram_reg                                                | 256 x 8(READ_FIRST)    | W | R | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top_nexys4ddr                                                        | bin_bridge_bram/ram_reg                                              | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|top_nexys4ddr                                                        | thinA_bram/ram_reg                                                   | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|top_nexys4ddr                                                        | thinB_bram/ram_reg                                                   | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|top_nexys4ddr                                                        | thinA_vga_bram/ram_reg                                               | 8 K x 8(NO_CHANGE)     | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|top_nexys4ddr                                                        | thinB_vga_bram/ram_reg                                               | 8 K x 8(NO_CHANGE)     | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|u_vga                                                                | u_ovl/ram_reg                                                        | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top_nexys4ddr                                                        | min_bram_vga/ram_reg                                                 | 512 x 32(NO_CHANGE)    | W |   | 512 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|top_nexys4ddr                                                        | min_bram_cpu/ram_reg                                                 | 512 x 32(READ_FIRST)   | W |   | 512 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|tmpl_bram                                                            | ram_reg                                                              | 8 K x 32(READ_FIRST)   | W | R | 8 K x 32(READ_FIRST)   | W | R | Port A and B     | 0      | 8      | 
+|\u_cpu/u_cpu /\core_complex_gen[0].neorv32_cpu_inst                  | neorv32_cpu_regfile_inst/register_file_fpga.reg_file_inst/sdpram_reg | 32 x 32(NO_CHANGE)     | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_imem_enabled.neorv32_imem_inst  | imem_ram.imem_ram_gen[0].ram_inst/spram_reg                          | 4 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_imem_enabled.neorv32_imem_inst  | imem_ram.imem_ram_gen[1].ram_inst/spram_reg                          | 4 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_imem_enabled.neorv32_imem_inst  | imem_ram.imem_ram_gen[2].ram_inst/spram_reg                          | 4 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_imem_enabled.neorv32_imem_inst  | imem_ram.imem_ram_gen[3].ram_inst/spram_reg                          | 4 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_dmem_enabled.neorv32_dmem_inst  | dmem_ram_gen[0].ram_inst/spram_reg                                   | 2 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_dmem_enabled.neorv32_dmem_inst  | dmem_ram_gen[1].ram_inst/spram_reg                                   | 2 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_dmem_enabled.neorv32_dmem_inst  | dmem_ram_gen[2].ram_inst/spram_reg                                   | 2 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_dmem_enabled.neorv32_dmem_inst  | dmem_ram_gen[3].ram_inst/spram_reg                                   | 2 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 1      | 0      | 
++---------------------------------------------------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++-----------------------------------------------------+---------------------------------------------------------------+-----------+----------------------+----------------------------+
+|Module Name                                          | RTL Object                                                    | Inference | Size (Depth x Width) | Primitives                 | 
++-----------------------------------------------------+---------------------------------------------------------------+-----------+----------------------+----------------------------+
+|u_bin                                                | ir_inst/buf0_reg                                              | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_bin                                                | ir_inst/buf1_reg                                              | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_bin                                                | ir_inst/buf2_reg                                              | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_thin                                               | win_reader_inst/buf0_reg                                      | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_thin                                               | win_reader_inst/buf1_reg                                      | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_thin                                               | win_reader_inst/buf2_reg                                      | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_min                                                | rdr/buf0_reg                                                  | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_min                                                | rdr/buf1_reg                                                  | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_min                                                | rdr/buf2_reg                                                  | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|\u_cpu/u_cpu /\core_complex_gen[0].neorv32_cpu_inst  | neorv32_cpu_frontend_inst/prefetch_buffer[0].ipb_inst/ipb_reg | Implied   | 2 x 17               | RAM32M x 3                 | 
+|\u_cpu/u_cpu /\core_complex_gen[0].neorv32_cpu_inst  | neorv32_cpu_frontend_inst/prefetch_buffer[1].ipb_inst/ipb_reg | Implied   | 2 x 16               | RAM32M x 3                 | 
++-----------------------------------------------------+---------------------------------------------------------------+-----------+----------------------+----------------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++--------------------+----------------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name         | DSP Mapping                                  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------------+----------------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|threshold_builder   | A*B                                          | 16     | 8      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|binarizer_subsystem | (C'+(A:0x44)*B'')'                           | 8      | 13     | 8      | -      | 13     | 2    | 0    | 1    | -    | -     | 0    | 1    | 
+|thinning_subsystem  | (C' or 0)+(((D:0x1ffffff)+A2)*(B:0x44) or 0) | 7      | 8      | 9      | 1      | 13     | 1    | 0    | 1    | 0    | 1     | 0    | 0    | 
+|vga_subsystem       | C+(A:0x44)*B                                 | 7      | 13     | 7      | -      | 13     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
++--------------------+----------------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:20 ; elapsed = 00:01:24 . Memory (MB): peak = 1692.336 ; gain = 761.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:23 ; elapsed = 00:01:27 . Memory (MB): peak = 1692.336 ; gain = 761.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++---------------------------------------------------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                                                          | RTL Object                                                           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++---------------------------------------------------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|data_bram_inst                                                       | ram_reg                                                              | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|u_bin                                                                | bin_bram_inst/mem_reg                                                | 8 K x 8(NO_CHANGE)     | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|u_bin                                                                | thr_bram_inst/mem_reg                                                | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|u_bin                                                                | tb_inst/u_sum/ram_reg                                                | 256 x 16(READ_FIRST)   | W | R | 256 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|u_bin                                                                | tb_inst/u_cnt/ram_reg                                                | 256 x 8(READ_FIRST)    | W | R | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top_nexys4ddr                                                        | bin_bridge_bram/ram_reg                                              | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|top_nexys4ddr                                                        | thinA_bram/ram_reg                                                   | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|top_nexys4ddr                                                        | thinB_bram/ram_reg                                                   | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|top_nexys4ddr                                                        | thinA_vga_bram/ram_reg                                               | 8 K x 8(NO_CHANGE)     | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|top_nexys4ddr                                                        | thinB_vga_bram/ram_reg                                               | 8 K x 8(NO_CHANGE)     | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 0      | 2      | 
+|u_vga                                                                | u_ovl/ram_reg                                                        | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top_nexys4ddr                                                        | min_bram_vga/ram_reg                                                 | 512 x 32(NO_CHANGE)    | W |   | 512 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|top_nexys4ddr                                                        | min_bram_cpu/ram_reg                                                 | 512 x 32(READ_FIRST)   | W |   | 512 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|tmpl_bram                                                            | ram_reg                                                              | 8 K x 32(READ_FIRST)   | W | R | 8 K x 32(READ_FIRST)   | W | R | Port A and B     | 0      | 8      | 
+|\u_cpu/u_cpu /\core_complex_gen[0].neorv32_cpu_inst                  | neorv32_cpu_regfile_inst/register_file_fpga.reg_file_inst/sdpram_reg | 32 x 32(NO_CHANGE)     | W | R | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_imem_enabled.neorv32_imem_inst  | imem_ram.imem_ram_gen[0].ram_inst/spram_reg                          | 4 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_imem_enabled.neorv32_imem_inst  | imem_ram.imem_ram_gen[1].ram_inst/spram_reg                          | 4 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_imem_enabled.neorv32_imem_inst  | imem_ram.imem_ram_gen[2].ram_inst/spram_reg                          | 4 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_imem_enabled.neorv32_imem_inst  | imem_ram.imem_ram_gen[3].ram_inst/spram_reg                          | 4 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 1      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_dmem_enabled.neorv32_dmem_inst  | dmem_ram_gen[0].ram_inst/spram_reg                                   | 2 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_dmem_enabled.neorv32_dmem_inst  | dmem_ram_gen[1].ram_inst/spram_reg                                   | 2 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_dmem_enabled.neorv32_dmem_inst  | dmem_ram_gen[2].ram_inst/spram_reg                                   | 2 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_cpu/u_cpu /\memory_system.neorv32_dmem_enabled.neorv32_dmem_inst  | dmem_ram_gen[3].ram_inst/spram_reg                                   | 2 K x 8(NO_CHANGE)     | W | R |                        |   |   | Port A           | 1      | 0      | 
++---------------------------------------------------------------------+----------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++-----------------------------------------------------+---------------------------------------------------------------+-----------+----------------------+----------------------------+
+|Module Name                                          | RTL Object                                                    | Inference | Size (Depth x Width) | Primitives                 | 
++-----------------------------------------------------+---------------------------------------------------------------+-----------+----------------------+----------------------------+
+|u_bin                                                | ir_inst/buf0_reg                                              | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_bin                                                | ir_inst/buf1_reg                                              | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_bin                                                | ir_inst/buf2_reg                                              | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_thin                                               | win_reader_inst/buf0_reg                                      | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_thin                                               | win_reader_inst/buf1_reg                                      | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_thin                                               | win_reader_inst/buf2_reg                                      | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_min                                                | rdr/buf0_reg                                                  | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_min                                                | rdr/buf1_reg                                                  | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|u_min                                                | rdr/buf2_reg                                                  | Implied   | 128 x 8              | RAM16X1S x 8 RAM64X1S x 8  | 
+|\u_cpu/u_cpu /\core_complex_gen[0].neorv32_cpu_inst  | neorv32_cpu_frontend_inst/prefetch_buffer[0].ipb_inst/ipb_reg | Implied   | 2 x 17               | RAM32M x 3                 | 
+|\u_cpu/u_cpu /\core_complex_gen[0].neorv32_cpu_inst  | neorv32_cpu_frontend_inst/prefetch_buffer[1].ipb_inst/ipb_reg | Implied   | 2 x 16               | RAM32M x 3                 | 
++-----------------------------------------------------+---------------------------------------------------------------+-----------+----------------------+----------------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4765] Removing register instance (\u_bin/tb_inst/data_valid_reg__0 ) from module (top_nexys4ddr) as it is equivalent to (\u_bin/tb_inst/data_valid_reg ) and driving same net [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:180]
+INFO: [Synth 8-4765] Removing register instance (\u_bin/tb_inst/rd_en_q_reg__0 ) from module (top_nexys4ddr) as it is equivalent to (\u_bin/tb_inst/rd_en_q_reg ) and driving same net [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sources_1/new/threshold_builder.vhd:179]
+INFO: [Synth 8-223] decloning instance 'bin_bridge_bram/ram_reg_1' (RAMB36E1_2) to 'bin_bridge_bram/ram_reg_0'
+INFO: [Synth 8-223] decloning instance 'thinA_bram/ram_reg_1' (RAMB36E1_2) to 'thinA_bram/ram_reg_0'
+INFO: [Synth 8-223] decloning instance 'thinB_bram/ram_reg_1' (RAMB36E1_2) to 'thinB_bram/ram_reg_0'
+INFO: [Synth 8-7052] The timing for the instance data_bram_inst/ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance data_bram_inst/ram_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bin/bin_bram_inst/mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bin/thr_bram_inst/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bin/tb_inst/u_sum/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bin/tb_inst/u_sum/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bin/tb_inst/u_cnt/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bin/tb_inst/u_cnt/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance bin_bridge_bram/ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance thinA_bram/ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance thinB_bram/ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance thinA_vga_bram/ram_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance thinB_vga_bram/ram_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_vga/u_ovl/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance min_bram_vga/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance min_bram_cpu/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance tmpl_bram/ram_reg_0_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance tmpl_bram/ram_reg_0_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance tmpl_bram/ram_reg_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance tmpl_bram/ram_reg_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance tmpl_bram/ram_reg_2_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance tmpl_bram/ram_reg_2_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance tmpl_bram/ram_reg_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance tmpl_bram/ram_reg_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_regfile_inst/register_file_fpga.reg_file_inst/sdpram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_regfile_inst/register_file_fpga.reg_file_inst/sdpram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/memory_system.neorv32_imem_enabled.neorv32_imem_inst/imem_ram.imem_ram_gen[0].ram_inst/spram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/memory_system.neorv32_imem_enabled.neorv32_imem_inst/imem_ram.imem_ram_gen[1].ram_inst/spram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/memory_system.neorv32_imem_enabled.neorv32_imem_inst/imem_ram.imem_ram_gen[2].ram_inst/spram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/memory_system.neorv32_imem_enabled.neorv32_imem_inst/imem_ram.imem_ram_gen[3].ram_inst/spram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[0].ram_inst/spram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[1].ram_inst/spram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[2].ram_inst/spram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/memory_system.neorv32_dmem_enabled.neorv32_dmem_inst/dmem_ram_gen[3].ram_inst/spram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_cpu/u_cpu/io_system.neorv32_boot_rom_enabled.neorv32_boot_rom_inst/rdata_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 1692.336 ; gain = 761.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:35 ; elapsed = 00:01:40 . Memory (MB): peak = 1697.938 ; gain = 767.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:35 ; elapsed = 00:01:40 . Memory (MB): peak = 1697.938 ; gain = 767.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:36 ; elapsed = 00:01:41 . Memory (MB): peak = 1697.938 ; gain = 767.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:36 ; elapsed = 00:01:41 . Memory (MB): peak = 1697.938 ; gain = 767.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:37 ; elapsed = 00:01:42 . Memory (MB): peak = 1697.938 ; gain = 767.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:37 ; elapsed = 00:01:42 . Memory (MB): peak = 1697.938 ; gain = 767.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++--------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name         | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|binarizer_subsystem | (C'+A''*B)' | 8      | 7      | 8      | -      | 13     | 2    | 0    | 0    | -    | -     | 0    | 1    | 
+|threshold_builder   | A*B         | 16     | 8      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|thinning_subsystem  | Dynamic     | -      | -      | -      | -      | 13     | -    | -    | -    | -    | 1     | 0    | 0    | 
+|vga_subsystem       | C+A*B       | 7      | 7      | 7      | -      | 13     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
++--------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+---------------+------+
+|      |Cell           |Count |
++------+---------------+------+
+|1     |clk_wiz_0_bbox |     1|
+|2     |CARRY4         |   112|
+|3     |DSP48E1        |     4|
+|7     |LUT1           |    44|
+|8     |LUT2           |   436|
+|9     |LUT3           |   442|
+|10    |LUT4           |   374|
+|11    |LUT5           |   661|
+|12    |LUT6           |   911|
+|13    |MUXF7          |     4|
+|14    |MUXF8          |     1|
+|15    |RAM16X1S       |    48|
+|16    |RAM32M         |     6|
+|17    |RAM64X1S       |    48|
+|18    |RAMB18E1       |    10|
+|23    |RAMB36E1       |    22|
+|30    |FDCE           |  1378|
+|31    |FDPE           |    41|
+|32    |FDRE           |   791|
+|33    |FDSE           |     8|
+|34    |IBUF           |    15|
+|35    |OBUF           |    42|
+|36    |OBUFT          |     5|
++------+---------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:37 ; elapsed = 00:01:42 . Memory (MB): peak = 1697.938 ; gain = 767.477
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1707 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:19 ; elapsed = 00:01:37 . Memory (MB): peak = 1697.938 ; gain = 662.887
+Synthesis Optimization Complete : Time (s): cpu = 00:01:37 ; elapsed = 00:01:42 . Memory (MB): peak = 1697.938 ; gain = 767.477
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.105 . Memory (MB): peak = 1702.609 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 255 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1704.738 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 102 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 48 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+  RAM64X1S => RAM64X1S (RAMS64E): 48 instances
+
+Synth Design complete | Checksum: 5bcc0fe8
+INFO: [Common 17-83] Releasing license: Synthesis
+199 Infos, 212 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:47 ; elapsed = 00:01:54 . Memory (MB): peak = 1704.738 ; gain = 1192.680
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1704.738 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/march/Vivado_projects/fingerprint/fingerprint.runs/synth_1/top_nexys4ddr.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file top_nexys4ddr_utilization_synth.rpt -pb top_nexys4ddr_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 12 22:21:16 2025...
