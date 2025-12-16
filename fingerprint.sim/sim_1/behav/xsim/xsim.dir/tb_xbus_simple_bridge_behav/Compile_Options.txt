@@ -1,1 +1,0 @@
---incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "tb_xbus_simple_bridge_behav" "xil_defaultlib.tb_xbus_simple_bridge" -log "elaborate.log" 

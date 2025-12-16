@@ -1,7 +1,7 @@
-Running: xsim.dir/tb_thinning_subsystem_behav/xsimk.exe -simmode gui -wdb tb_thinning_subsystem_behav.wdb -simrunnum 0 -socket 56490
+Running: xsim.dir/tb_thinning_subsystem_behav/xsimk.exe -simmode gui -wdb tb_thinning_subsystem_behav.wdb -simrunnum 0 -socket 55670
 Design successfully loaded
-Design Loading Memory Usage: 11356 KB (Peak: 11356 KB)
-Design Loading CPU Usage: 30 ms
+Design Loading Memory Usage: 10484 KB (Peak: 10484 KB)
+Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 20284 KB (Peak: 20284 KB)
-Simulation CPU Usage: 1874 ms
+Simulation Memory Usage: 20132 KB (Peak: 20132 KB)
+Simulation CPU Usage: 1562 ms

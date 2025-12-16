@@ -80,7 +80,6 @@ architecture sim of tb_thinning_subsystem is
   signal tb_failed : std_logic := '0';
   signal tb_done   : std_logic := '0';
 
-  file pgm_file : text open write_mode is "thin_out.pgm";
 
   -- helper: linear address
   function at(x, y : integer) return integer is
@@ -250,25 +249,6 @@ begin
     for i in 0 to TOTAL-1 loop
       mon_read(thinB_mon_en, thinB_mon_addr, thinB_mon_dout, i, v);
       snap_thn(i) := v;
-    end loop;
-
-    -- write PGM
-    write(L, string'("P2")); writeline(pgm_file, L);
-    write(L, string'("# thinning result")); writeline(pgm_file, L);
-    write(L, IMG_W); write(L, string'(" ")); write(L, IMG_H); writeline(pgm_file, L);
-    write(L, 255); writeline(pgm_file, L);
-    for yy in 0 to IMG_H-1 loop
-      for xx in 0 to IMG_W-1 loop
-        if snap_thn(at(xx,yy)) = (DATA_W-1 downto 0 => '0') then
-          write(L, 0);
-        else
-          write(L, 255);
-        end if;
-        if xx < IMG_W-1 then
-          write(L, string'(" "));
-        end if;
-      end loop;
-      writeline(pgm_file, L);
     end loop;
 
     -- checks

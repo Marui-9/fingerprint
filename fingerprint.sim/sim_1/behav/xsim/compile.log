@@ -1,0 +1,14 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_minutiae_extractor'
+ERROR: [VRFC 10-2989] 'cx8' is not declared [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:410]
+ERROR: [VRFC 10-9434] type conversion expression type for 'unsigned' cannot be uniquely determined [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:410]
+ERROR: [VRFC 10-2989] 'cy8' is not declared [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:411]
+ERROR: [VRFC 10-9434] type conversion expression type for 'unsigned' cannot be uniquely determined [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:411]
+ERROR: [VRFC 10-2989] 'w11' is not declared [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:412]
+ERROR: [VRFC 10-2989] 'push_feat' is not declared [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:409]
+ERROR: [VRFC 10-2989] 'feat_addr_i' is not declared [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:415]
+ERROR: [VRFC 10-2989] 'feat_din_i' is not declared [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:416]
+ERROR: [VRFC 10-2989] 'feat_we_i' is not declared [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:414]
+ERROR: [VRFC 10-1471] type error near feat_din ; current type std_logic_vector; expected type bit_vector [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:420]
+ERROR: [VRFC 10-9458] unit 'sim' is ignored due to previous errors [C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd:9]
+INFO: [VRFC 10-8704] VHDL file 'C:/Users/march/Vivado_projects/fingerprint/fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd' is ignored due to errors

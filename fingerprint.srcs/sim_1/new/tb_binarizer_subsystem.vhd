@@ -1,39 +1,10 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 16.09.2025 11:33:07
--- Design Name: 
--- Module Name: tb_binarizer_subsystem - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
--- tb_binarizer_subsystem.vhd
-
--- - Drives a synthetic 68x118 grayscale frame into data_bram via its UART-like interface
--- - Runs the 2-pass binarizer_subsystem (threshold builder + stream binarizer)
--- - Reads the binary image via the VGA-style port and writes a PGM file (binary_out.pgm)
---
--- NOTE: This file includes a simple behavioral architecture for 'data_bram' at the end
---       so you can run immediately. If you already have your own 'data_bram' implementation,
---       remove/comment that architecture and use your compiled one.
-
 library ieee;
 use ieee.std_logic_1164.all; 
 use ieee.numeric_std.all;
 use std.textio.all;
 
 entity tb_binarizer_subsystem is
+  -- testbench exposes tb_done/tb_failed so you can probe them in waveforms
 end entity;
 
 architecture sim of tb_binarizer_subsystem is
@@ -83,9 +54,17 @@ architecture sim of tb_binarizer_subsystem is
   signal bin_done_s : std_logic;
 
   ---------------------------------------------------------------------------
-  -- File I/O for writing PGM of the binary result
+  -- Start synchronizer (frame_done -> rd_clk domain)
   ---------------------------------------------------------------------------
-  file pgm_file : text open write_mode is "binary_out.pgm";
+  signal fd_sync0   : std_logic := '0';
+  signal fd_sync1   : std_logic := '0';
+  signal start_pulse: std_logic := '0';
+
+  ---------------------------------------------------------------------------
+  -- TB pass/fail indicators (new)
+  ---------------------------------------------------------------------------
+  signal tb_done   : std_logic := '0';
+  signal tb_failed : std_logic := '0';
 
 begin
   ---------------------------------------------------------------------------
@@ -108,7 +87,7 @@ begin
   end process;
 
   ---------------------------------------------------------------------------
-  -- DUT: data_bram (behavioral architecture provided later in this file)
+  -- DUT: data_bram (behavioral architecture provided separately/included)
   ---------------------------------------------------------------------------
   data_bram_inst : entity work.data_bram
     generic map (
@@ -134,6 +113,7 @@ begin
 
   ---------------------------------------------------------------------------
   -- DUT: binarizer_subsystem (thresholds + stream binarizer + binary BRAM)
+  -- start now driven by synchronized single-cycle pulse start_pulse
   ---------------------------------------------------------------------------
   binarizer_ss_inst : entity work.binarizer_subsystem
     generic map (
@@ -147,7 +127,7 @@ begin
     port map (
       rd_clk       => clk_rd,
       rst          => rst_rd,
-      start        => frame_done_s,     -- kick pass1 after frame is loaded
+      start        => start_pulse,     -- synchronized one-cycle pulse
       db_rd_en     => db_rd_en_s,
       db_rd_addr   => db_rd_addr_s,
       db_rd_dout   => db_rd_dout_s,
@@ -162,12 +142,10 @@ begin
   ---------------------------------------------------------------------------
   -- Stimulus: generate a synthetic frame and "send" it via UART-like inputs
   -- Pattern: grayscale gradient with gentle modulation to exercise thresholds.
-  -- Order: row-major. We assert frame_start, then pulse done_reg per pixel.
   ---------------------------------------------------------------------------
   writer_proc : process
     variable x, y : integer;
     impure function pix_val(xx, yy : integer) return integer is
-      -- Simple pattern: (4*x + 2*y) mod 256, with small stripe to vary blocks
       variable v : integer := (4*xx + 2*yy) mod 256;
     begin
       if ((xx/8) mod 2) = 1 then
@@ -179,6 +157,8 @@ begin
     -- Wait until resets deassert
     wait until rst_wr = '0';
     wait for 50 ns;
+
+    report "Writer: starting frame" severity note;
 
     -- Start a new frame
     frame_start_s <= '1';
@@ -192,28 +172,67 @@ begin
         done_reg_s <= '1';
         wait until rising_edge(clk_wr);
         done_reg_s <= '0';
-        -- idle a cycle between bytes (optional)
+        -- idle a cycle between bytes
         wait until rising_edge(clk_wr);
       end loop;
     end loop;
 
-    -- Wait for frame_done from data_bram to ripple to binarizer (start)
+    report "Writer: frame transmission finished, waiting for data_bram.frame_done" severity note;
+
+    -- data_bram's frame_done is sticky until next frame_start; wait for it
     wait until frame_done_s = '1';
-    -- Wait a bit so subsystem picks up the start
-    wait for 200 ns;
+    report "Writer: data_bram.frame_done asserted" severity note;
 
-    -- Wait for binarization to complete
+    wait;
+  end process;
+
+  -----------------------------------------------------------------------------
+  -- Synchronize frame_done_s into clk_rd domain and generate one-cycle start
+  -----------------------------------------------------------------------------
+  process(clk_rd)
+  begin
+    if rising_edge(clk_rd) then
+      if rst_rd = '1' then
+        fd_sync0 <= '0';
+        fd_sync1 <= '0';
+        start_pulse <= '0';
+      else
+        fd_sync0 <= frame_done_s;
+        fd_sync1 <= fd_sync0;
+
+        -- one-cycle pulse on rising edge of synchronized frame_done
+        if (fd_sync1 = '0') and (fd_sync0 = '1') then
+          start_pulse <= '1';
+          report "TB: start_pulse asserted (synchronized frame_done)" severity note;
+        else
+          start_pulse <= '0';
+        end if;
+      end if;
+    end if;
+  end process;
+
+  ---------------------------------------------------------------------------
+  -- Monitor completion and set tb_done. Do not write files; only waveforms.
+  ---------------------------------------------------------------------------
+  completion_monitor : process
+  begin
     wait until bin_done_s = '1';
-    report "Binarization done.";
+    wait until rising_edge(clk_rd); -- align with clock
+    report "TB: bin_done observed. Marking tb_done and stopping simulation." severity note;
+    tb_done <= '1';
+    -- keep tb_done high for waveforms; wait a short time then stop
+    wait for 200 ns;
+    wait;
+  end process;
 
-  
-
-    -- One extra cycle to flush the very last sample (optional)
-    wait until rising_edge(clk_rd);
-
-    report "PGM write complete. Simulation will stop.";
-    wait for 500 ns;
-    std.env.stop;
+  ---------------------------------------------------------------------------
+  -- Watchdog: set tb_failed on timeout and stop
+  ---------------------------------------------------------------------------
+  watchdog_proc : process
+  begin
+    wait for 100 ms; -- timeout
+    tb_failed <= '1';
+    report "TB: simulation timeout. Marking tb_failed and stopping." severity FAILURE;
     wait;
   end process;
 

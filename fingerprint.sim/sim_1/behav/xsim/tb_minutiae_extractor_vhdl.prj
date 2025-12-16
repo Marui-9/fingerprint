@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../fingerprint.srcs/sources_1/new/image_window_reader.vhd" \
+"../../../../fingerprint.srcs/sources_1/new/minutiae_bram.vhd" \
+"../../../../fingerprint.srcs/sources_1/new/minutiae_extractor.vhd" \
+"../../../../fingerprint.srcs/sim_1/new/tb_frame_bram.vhd" \
+"../../../../fingerprint.srcs/sim_1/new/tb_minutiae_extractor.vhd" \
+
+# Do not sort compile order
+nosort

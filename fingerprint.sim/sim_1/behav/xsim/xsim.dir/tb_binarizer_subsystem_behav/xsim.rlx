@@ -1,8 +1,8 @@
 
 { 
-    crc :  14423807367080438558  , 
+    crc :  14845767007798880222  , 
     ccp_crc :  0  , 
-    cmdline : " --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_binarizer_subsystem_behav xil_defaultlib.tb_binarizer_subsystem" , 
+    cmdline : " --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_binarizer_subsystem_behav xil_defaultlib.tb_binarizer_subsystem xil_defaultlib.glbl" , 
     buildDate : "May 22 2024" , 
     buildTime : "19:03:11" , 
     linkCmd : "C:\\Xilinx\\Vivado\\2024.1\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/tb_binarizer_subsystem_behav/xsimk.exe\"   \"xsim.dir/tb_binarizer_subsystem_behav/obj/xsim_0.win64.obj\" \"xsim.dir/tb_binarizer_subsystem_behav/obj/xsim_1.win64.obj\" -L\"C:\\Xilinx\\Vivado\\2024.1\\lib\\win64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 

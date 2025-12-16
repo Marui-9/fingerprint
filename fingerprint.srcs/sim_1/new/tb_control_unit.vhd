@@ -38,6 +38,7 @@ architecture sim of tb_control_unit is
   signal sw_mode          : std_logic := '0'; -- 0=enroll, 1=match
   signal sw_vga_sel       : std_logic_vector(1 downto 0) := (others => '0');
   signal sw_tmpl_id       : std_logic_vector(5 downto 0) := (others => '0');
+  signal sw_single        : std_logic := '0';
   signal btn_start        : std_logic := '0';
   signal btn_pause        : std_logic := '0';
   signal btn_step         : std_logic := '0';
@@ -99,6 +100,7 @@ begin
       btn_pause        => btn_pause,
       btn_step         => btn_step,
       frame_ready      => frame_ready,
+      sw_single        => sw_single,
       bin_busy         => bin_busy,
       bin_done_p       => bin_done_p,
       thin_busy        => thin_busy,
@@ -118,9 +120,9 @@ begin
       cu_probe_len_wr  => cu_probe_len_wr,
       cu_probe_len     => cu_probe_len,
       cu_irq_set       => cu_irq_set,
-      cu_status        => cu_status,
-      cu_result_slot   => cu_result_slot,
-      cu_result_score  => cu_result_score
+      cu_status        => cu_status
+      --cu_result_slot   => cu_result_slot,
+      --cu_result_score  => cu_result_score
     );
 
   --------------------------------------------------------------------
@@ -173,7 +175,7 @@ begin
     ----------------------------------------------------------------
     report "TEST: MATCH mode" severity note;
     sw_mode <= '1'; -- match
-    btn_start <= '1'; wait for CLK_PERIOD; btn_start <= '0';
+    --btn_start <= '1'; wait for CLK_PERIOD; btn_start <= '0';
 
     wait for 2*CLK_PERIOD;
     assert bin_start_p = '1'

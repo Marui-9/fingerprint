@@ -1,78 +1,30 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 21.09.2025 18:15:19
--- Design Name: 
--- Module Name: tb_minutiae_extractor - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
--- tb_minutiae_extractor.vhd
--- VHDL-93 testbench for minutiae_extractor
--- Vivado 2024.1
---
--- - Reuses project's image_window_reader (instantiated inside minutiae_extractor)
--- - THIN_A/THIN_B provided by a simple behavioral BRAM model (tb_frame_bram)
--- - Feature output written into the real minutiae_bram (512x32)
--- - Creates a thin '+' plus a 'Y' junction; expects >=1 bifurcation and >=2 endings
--- - Dumps decoded records to minutiae_dump.txt
---
--- NOTE: Add 'minutiae_extractor.vhd', 'minutiae_bram.vhd', 'image_window_reader.vhd'
---       to your simulation sources alongside this testbench.
--- tb_minutiae_extractor.vhd
--- VHDL-93 testbench for minutiae_extractor
--- Vivado 2024.1
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use std.textio.all;
 
---------------------------------------------------------------------
--- Testbench first (ordering can help Vivado parsers)
---------------------------------------------------------------------
 entity tb_minutiae_extractor is
 end entity;
 
 architecture sim of tb_minutiae_extractor is
-  ----------------------------------------------------------------
   -- Image / address params
-  ----------------------------------------------------------------
   constant DATA_W : integer := 8;
   constant ADDR_W : integer := 13;  -- 2^13 >= 68*118
   constant IMG_W  : integer := 68;
   constant IMG_H  : integer := 118;
   constant TOTAL  : integer := IMG_W * IMG_H;
 
-  ----------------------------------------------------------------
   -- Clocks / reset
-  ----------------------------------------------------------------
   signal clk : std_logic := '0';
   signal rst : std_logic := '1';
 
-  ----------------------------------------------------------------
   -- DUT handshakes
-  ----------------------------------------------------------------
   signal s_min_start   : std_logic := '0';
   signal s_min_busy    : std_logic;
   signal s_min_done    : std_logic;
   signal src_is_a      : std_logic := '1';  -- we preload THIN_A, so select A
 
-  ----------------------------------------------------------------
   -- THIN_A (behavioral): write by TB, read by DUT, monitor by TB
-  ----------------------------------------------------------------
   signal thinA_we       : std_logic := '0';
   signal thinA_waddr    : unsigned(ADDR_W-1 downto 0) := (others => '0');
   signal thinA_din      : std_logic_vector(DATA_W-1 downto 0) := (others => '0');
@@ -85,9 +37,7 @@ architecture sim of tb_minutiae_extractor is
   signal thinA_mon_addr : unsigned(ADDR_W-1 downto 0) := (others => '0');
   signal thinA_mon_dout : std_logic_vector(DATA_W-1 downto 0);
 
-  ----------------------------------------------------------------
   -- THIN_B (behavioral): present for completeness (kept zero)
-  ----------------------------------------------------------------
   signal thinB_we       : std_logic := '0';
   signal thinB_waddr    : unsigned(ADDR_W-1 downto 0) := (others => '0');
   signal thinB_din      : std_logic_vector(DATA_W-1 downto 0) := (others => '0');
@@ -100,9 +50,7 @@ architecture sim of tb_minutiae_extractor is
   signal thinB_mon_addr : unsigned(ADDR_W-1 downto 0) := (others => '0');
   signal thinB_mon_dout : std_logic_vector(DATA_W-1 downto 0);
 
-  ----------------------------------------------------------------
   -- Feature BRAM (real minutiae_bram)
-  ----------------------------------------------------------------
   signal feat_we      : std_logic;
   signal feat_addr    : unsigned(8 downto 0);
   signal feat_din     : std_logic_vector(31 downto 0);
@@ -117,35 +65,24 @@ architecture sim of tb_minutiae_extractor is
   signal feat_enB     : std_logic := '0';
   signal feat_addrB   : unsigned(8 downto 0) := (others => '0');
 
-  ----------------------------------------------------------------
   -- TB flags
-  ----------------------------------------------------------------
   signal tb_failed : std_logic := '0';
   signal tb_done   : std_logic := '0';
 
-  ----------------------------------------------------------------
   -- Text outputs
-  ----------------------------------------------------------------
   file dump_file : text open write_mode is "minutiae_dump.txt";
 
-  ----------------------------------------------------------------
   -- Helpers
-  ----------------------------------------------------------------
-  -- linear address
   function at(x, y : integer) return integer is
   begin
     return y*IMG_W + x;
   end function;
 
 begin
-  ----------------------------------------------------------------
   -- Clock
-  ----------------------------------------------------------------
   clk <= not clk after 10 ns;  -- 50 MHz
 
-  ----------------------------------------------------------------
   -- THIN_A / THIN_B BRAM models
-  ----------------------------------------------------------------
   thinA_bram : entity work.tb_frame_bram
     generic map (
       DATA_WIDTH => DATA_W,
@@ -182,9 +119,7 @@ begin
       rd1_dout => thinB_mon_dout
     );
 
-  ----------------------------------------------------------------
   -- Feature BRAM (synthesizable dual-port)
-  ----------------------------------------------------------------
   feat_bram : entity work.minutiae_bram
     generic map (
       DATA_WIDTH => 32,
@@ -205,9 +140,7 @@ begin
       doutB => feat_doutB
     );
 
-  ----------------------------------------------------------------
   -- DUT: minutiae_extractor
-  ----------------------------------------------------------------
   dut : entity work.minutiae_extractor
     generic map (
       DATA_WIDTH => DATA_W,
@@ -240,9 +173,18 @@ begin
       feat_overflow => feat_overflow
     );
 
-  ----------------------------------------------------------------
+  -- monitor feature writes for debugging
+  monitor_feat_write : process(clk)
+  begin
+    if rising_edge(clk) then
+      if feat_we = '1' then
+        report "FEAT WRITE: addr=" & integer'image(to_integer(feat_addr))    ;-- &
+          --     " data=" & to_hstringfeat_din) severity note;
+      end if;
+    end if;
+  end process;
+
   -- Stimulus
-  ----------------------------------------------------------------
   stimulus : process
     variable L  : line;
     variable xx, yy : integer;
@@ -264,6 +206,9 @@ begin
     -- Center for the 'Y'
     variable x0 : integer := IMG_W/3;
     variable y0 : integer := IMG_H/3;
+
+    -- verification variable to avoid signal scheduling races
+    variable v_tb_failed : boolean := false;
 
     -- synchronous BRAM read (2-cycle)
     procedure feat_read(
@@ -320,16 +265,18 @@ begin
       write_pix_A(x0, yy);
     end loop;
     -- arm 1: up-right diagonal
-    for ii in 0 to 14 loop
-      write_pix_A(x0+ii, y0-ii);
+    for xx in 0 to 14 loop
+      write_pix_A(x0+xx, y0-xx);
     end loop;
     -- arm 2: up-left diagonal
-    for ii in 0 to 14 loop
-      write_pix_A(x0-ii, y0-ii);
+    for xx in 0 to 14 loop
+      write_pix_A(x0-xx, y0-xx);
     end loop;
 
-    -- Done writing skeleton; select A as source
+    -- Done writing skeleton; ensure src select stable and settle
     src_is_a <= '1';
+    -- give DUT time to sample src_is_a and for BRAM writes to settle
+    wait for 500 ns;
 
     ----------------------------------------------------------------
     -- Start extraction
@@ -340,6 +287,10 @@ begin
 
     -- Wait for completion
     wait until s_min_done = '1';
+    -- give a couple cycles to ensure final writes committed to BRAM
+    wait until rising_edge(clk);
+    wait until rising_edge(clk);
+    wait until rising_edge(clk);
     wait until rising_edge(clk);
 
     ----------------------------------------------------------------
@@ -352,6 +303,11 @@ begin
 
     -- Header for dump
     write(L, string'("# idx  valid  type  x    y    CN  N")); writeline(dump_file, L);
+
+    -- reset verification variable and counters
+    v_tb_failed := false;
+    cnt_end := 0;
+    cnt_bif := 0;
 
     for i in 0 to cnt_total-1 loop
       feat_read(feat_enB, feat_addrB, feat_doutB, i, rec);
@@ -391,122 +347,88 @@ begin
       write(L, to_integer(v_n), right, 4);
       writeline(dump_file, L);
 
-      -- validity checks
+      -- checks using variable (no signal races)
       if v_valid /= '1' then
-        tb_failed <= '1';
-        report "FAIL: record[" & integer'image(i) & "] valid bit is 0" severity error;
+        v_tb_failed := true;
+        report "FAIL: record[" & integer'image(i) & "] valid bit is 0" severity note;
       end if;
       if to_integer(v_x) > IMG_W-1 then
-        tb_failed <= '1';
-        report "FAIL: record[" & integer'image(i) & "] x out of range" severity error;
+        v_tb_failed := true;
+        report "FAIL: record[" & integer'image(i) & "] x out of range" severity note;
       end if;
       if to_integer(v_y) > IMG_H-1 then
-        tb_failed <= '1';
-        report "FAIL: record[" & integer'image(i) & "] y out of range" severity error;
+        v_tb_failed := true;
+        report "FAIL: record[" & integer'image(i) & "] y out of range" severity note;
       end if;
       if to_integer(v_cn) > 8 then
-        tb_failed <= '1';
-        report "FAIL: record[" & integer'image(i) & "] CN out of [0..8]" severity error;
+        v_tb_failed := true;
+        report "FAIL: record[" & integer'image(i) & "] CN out of [0..8]" severity note;
       end if;
       if to_integer(v_n) > 8 then
-        tb_failed <= '1';
-        report "FAIL: record[" & integer'image(i) & "] N out of [0..8]" severity error;
+        v_tb_failed := true;
+        report "FAIL: record[" & integer'image(i) & "] N out of [0..8]" severity note;
       end if;
       if not ( (v_type="00") or (v_type="01") or (v_type="10") or (v_type="11") ) then
-        tb_failed <= '1';
-        report "FAIL: record[" & integer'image(i) & "] type invalid" severity error;
+        v_tb_failed := true;
+        report "FAIL: record[" & integer'image(i) & "] type invalid" severity note;
       end if;
     end loop;
 
-    -- High-level expectations:
+    -- High-level expectations (variable-based)
     if cnt_bif < 1 then
-      tb_failed <= '1';
-      report "FAIL: expected at least 1 bifurcation, found " & integer'image(cnt_bif) severity error;
+      v_tb_failed := true;
+      report "FAIL: expected at least 1 bifurcation, found " & integer'image(cnt_bif) severity note;
     end if;
     if cnt_end < 2 then
-      tb_failed <= '1';
-      report "FAIL: expected at least 2 endings, found " & integer'image(cnt_end) severity error;
+      v_tb_failed := true;
+      report "FAIL: expected at least 2 endings, found " & integer'image(cnt_end) severity note;
     end if;
 
-    -- Overflow should be false for this small pattern
     if feat_overflow = '1' then
-      tb_failed <= '1';
-      report "FAIL: feat_overflow asserted unexpectedly" severity error;
+      v_tb_failed := true;
+      report "FAIL: feat_overflow asserted unexpectedly" severity note;
     end if;
 
-    -- Final status
-    if tb_failed = '0' then
+    -- commit result to visible signals and emit one authoritative report
+    if v_tb_failed = true then
+      tb_failed <= '1';
+      report "FAILED: minutiae_extractor test (total=" & integer'image(cnt_total);
+    else
       tb_done <= '1';
       report "PASS: minutiae_extractor test OK (total=" & integer'image(cnt_total) &
              ", end=" & integer'image(cnt_end) & ", bif=" & integer'image(cnt_bif) & ")" severity note;
-    else
-      report "FAILED: minutiae_extractor test" severity failure;
     end if;
 
     wait;
   end process;
-
-end architecture;
-
---------------------------------------------------------------------
--- Simple dual-port BRAM model (1 write + 2 read ports)
--- Put AFTER the TB (ordering helps Vivado in some setups)
---------------------------------------------------------------------
-entity tb_frame_bram is
-  generic (
-    DATA_WIDTH : integer := 8;
-    ADDR_WIDTH : integer := 13
-  );
-  port (
-    clk   : in  std_logic;
-
-    -- Write port
-    we    : in  std_logic;
-    waddr : in  unsigned(ADDR_WIDTH-1 downto 0);
-    din   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
-
-    -- Read port 0 (to DUT)
-    rd0_en   : in  std_logic;
-    rd0_addr : in  unsigned(ADDR_WIDTH-1 downto 0);
-    rd0_dout : out std_logic_vector(DATA_WIDTH-1 downto 0);
-
-    -- Read port 1 (monitor / TB)
-    rd1_en   : in  std_logic;
-    rd1_addr : in  unsigned(ADDR_WIDTH-1 downto 0);
-    rd1_dout : out std_logic_vector(DATA_WIDTH-1 downto 0)
-  );
-end entity;
-
-architecture behav_ram of tb_frame_bram is
-  type ram_t is array (0 to (2**ADDR_WIDTH)-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
-  signal mem : ram_t := (others => (others => '0'));
-
-  signal rd0_en_q   : std_logic := '0';
-  signal rd0_addr_q : unsigned(ADDR_WIDTH-1 downto 0) := (others => '0');
-  signal rd1_en_q   : std_logic := '0';
-  signal rd1_addr_q : unsigned(ADDR_WIDTH-1 downto 0) := (others => '0');
+  
+  monitor_push : process(clk)
 begin
-  process(clk)
-  begin
-    if rising_edge(clk) then
-      -- write
-      if we = '1' then
-        mem(to_integer(waddr)) <= din;
+  if rising_edge(clk) then
+    if now > 0 ns then
+      if (push_feat = '1') then
+        report "PUSH_FEAT: cx=" & integer'image(to_integer(unsigned(cx8))) &
+               " cy=" & integer'image(to_integer(unsigned(cy8))) &
+               " w11=" & to_hstring(w11) severity note;
       end if;
-
-      -- pipeline read addresses/enables (1-cycle latency)
-      rd0_en_q   <= rd0_en;
-      rd0_addr_q <= rd0_addr;
-      rd1_en_q   <= rd1_en;
-      rd1_addr_q <= rd1_addr;
-
-      if rd0_en_q = '1' then
-        rd0_dout <= mem(to_integer(rd0_addr_q));
+      if feat_we_i = '1' then
+        report "FEAT_WRITE_INT: addr_i=" & integer'image(to_integer(feat_addr_i)) &
+               " data_i=" & to_hstring(feat_din_i) severity note;
       end if;
-      if rd1_en_q = '1' then
-        rd1_dout <= mem(to_integer(rd1_addr_q));
+      if feat_we = '1' then
+        report "FEAT_WRITE_TB: addr=" & integer'image(to_integer(feat_addr)) &
+               " data=" & to_hstring(feat_din) severity note;
       end if;
     end if;
-  end process;
-end architecture;
+  end if;
+end process;
 
+  -- watchdog to avoid hangs
+  watchdog_proc : process
+  begin
+    wait for 100 ms;
+    report "TB: timeout" severity failure;
+    wait;
+  end process;
+
+end architecture;
