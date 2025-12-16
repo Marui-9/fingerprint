@@ -401,27 +401,6 @@ begin
 
     wait;
   end process;
-  
-  monitor_push : process(clk)
-begin
-  if rising_edge(clk) then
-    if now > 0 ns then
-      if (push_feat = '1') then
-        report "PUSH_FEAT: cx=" & integer'image(to_integer(unsigned(cx8))) &
-               " cy=" & integer'image(to_integer(unsigned(cy8))) &
-               " w11=" & to_hstring(w11) severity note;
-      end if;
-      if feat_we_i = '1' then
-        report "FEAT_WRITE_INT: addr_i=" & integer'image(to_integer(feat_addr_i)) &
-               " data_i=" & to_hstring(feat_din_i) severity note;
-      end if;
-      if feat_we = '1' then
-        report "FEAT_WRITE_TB: addr=" & integer'image(to_integer(feat_addr)) &
-               " data=" & to_hstring(feat_din) severity note;
-      end if;
-    end if;
-  end if;
-end process;
 
   -- watchdog to avoid hangs
   watchdog_proc : process
