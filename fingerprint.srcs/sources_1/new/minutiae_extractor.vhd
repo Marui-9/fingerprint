@@ -353,7 +353,8 @@ begin
         if push_feat='1' then
           if feat_count_i<FEAT_DEPTH_U then
             feat_din_i<=feat_din_next; feat_we_i<='1';
-            feat_addr_i<=feat_addr_i+1; feat_count_i<=feat_count_i+1;
+            feat_addr_i<=resize(feat_count_i, feat_addr_i'length); 
+            feat_count_i<=feat_count_i+1;
           else
             feat_overflow_i<='1';
           end if;

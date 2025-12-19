@@ -222,9 +222,7 @@ begin
       enB   <= '1';
       addrB <= to_unsigned(a, 9);
       wait until rising_edge(clk);
-      enB   <= '1';
-      addrB <= to_unsigned(a, 9);
-      wait until rising_edge(clk);
+     wait until rising_edge(clk);
       rec := doutB;
       enB <= '0';
     end procedure;

@@ -1,4 +1,4 @@
-Running: xsim.dir/tb_minutiae_extractor_behav/xsimk.exe -simmode gui -wdb tb_minutiae_extractor_behav.wdb -simrunnum 0 -socket 55591
+Running: xsim.dir/tb_minutiae_extractor_behav/xsimk.exe -simmode gui -wdb tb_minutiae_extractor_behav.wdb -simrunnum 0 -socket 60584
 Design successfully loaded
-Design Loading Memory Usage: 10224 KB (Peak: 10224 KB)
-Design Loading CPU Usage: 31 ms
+Design Loading Memory Usage: 10200 KB (Peak: 10200 KB)
+Design Loading CPU Usage: 61 ms

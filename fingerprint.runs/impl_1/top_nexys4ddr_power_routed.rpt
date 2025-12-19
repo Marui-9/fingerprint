@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date             : Sun Oct 12 22:23:53 2025
+| Date             : Fri Dec 19 15:42:19 2025
 | Host             : LAPTOP-2TEH7FQA running 64-bit major release  (build 9200)
 | Command          : report_power -file top_nexys4ddr_power_routed.rpt -pb top_nexys4ddr_power_summary_routed.pb -rpx top_nexys4ddr_power_routed.rpx
 | Design           : top_nexys4ddr
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.006 |        6 |       --- |             --- |
-| Slice Logic              |     0.003 |     5477 |       --- |             --- |
-|   LUT as Logic           |     0.003 |     2243 |     63400 |            3.54 |
+| Slice Logic              |     0.003 |     5473 |       --- |             --- |
+|   LUT as Logic           |     0.003 |     2240 |     63400 |            3.53 |
 |   LUT as Distributed RAM |    <0.001 |      120 |     19000 |            0.63 |
 |   Register               |    <0.001 |     2223 |    126800 |            1.75 |
 |   CARRY4                 |    <0.001 |      112 |     15850 |            0.71 |
 |   F7/F8 Muxes            |    <0.001 |        5 |     63400 |           <0.01 |
 |   Others                 |     0.000 |      125 |       --- |             --- |
-| Signals                  |     0.004 |     4532 |       --- |             --- |
+| Signals                  |     0.004 |     4531 |       --- |             --- |
 | Block RAM                |     0.016 |       27 |       135 |           20.00 |
 | PLL                      |     0.097 |        1 |         6 |           16.67 |
 | DSPs                     |    <0.001 |        4 |       240 |            1.67 |
