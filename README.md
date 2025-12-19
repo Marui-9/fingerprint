@@ -1,3 +1,4 @@
+![System Diagram](diagram.png)
 # FPGA Fingerprint Recognition System
 
 ## Overview
